@@ -4,7 +4,14 @@ They define the relationship between the data, and the operations that can be pe
 There are several basic and advanced types of data structures, all designed to arrange data to suit a specific purpose. 
 All code examples listed here are written in C#.
 
-
+# Table of Content
+- [Arrays](#arrays)
+- [Linked Lists](#linked-lists)
+- [Stacks](#stacks)
+- [Queues](#queues)
+- [Hash Tables](#hash-tables)
+- [Trees](#trees)
+- [Graphs](#graphs)
 
 ## [Arrays](https://learn.microsoft.com/en-us/dotnet/api/system.array?view=net-8.0)
 An array is a series of elements of the same type placed in contiguous memory locations that can be individually referenced by adding an index to a unique identifier.
