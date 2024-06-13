@@ -11,10 +11,10 @@ To contribute, please make a pull request. When adding or correcting information
 Thank you for your interest and your contributions in making this a valuable resource. Whether you’re brushing up on concepts for an interview, seeking a refresher, or simply indulging in the joy of learning, your help is greatly appreciated.
 
 ## 📃 Table of Content
-- [Asymptotic Notation](/Technical-Preparation/Asymptotic-Notation.md)
-- [Programming Languages](/Technical-Preparation/Programming-Languages.md)
-- [Data Structures](/Technical-Preparation/Data-Structures.md)
-- [Algorithms](/Technical-Preparation/Algorithms.md)
+- [Asymptotic Notation](/Topics/Asymptotic-Notation.md)
+- [Programming Languages](/Topics/Programming-Languages.md)
+- [Data Structures](/Topics/Data-Structures.md)
+- [Algorithms](/Topics/Algorithms.md)
 - Databases
 - Operating Systems
 - Networking
