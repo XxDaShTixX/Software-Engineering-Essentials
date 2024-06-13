@@ -15,8 +15,8 @@ They are fundamental to efficient coding and good software design.
   - [Jump Search](#jump-search)
   - [Interpolation Search](#interpolation-search)
 - [Graph Algorithms](#graph-algorithms)
-  - [Depth-First Search (DFS)](#depth-first-search)
-  - [Breadth-First Search (BFS)](#breadth-first-search)
+  - [Depth-First Search (DFS)](#depth-first-search-dfs)
+  - [Breadth-First Search (BFS)](#breadth-first-search-dfs)
   - [Dijkstra's Algorithm](#dijkstras-algorithm)
   - [Bellman-Ford Algorithm](#bellman-ford-algorithm)
 - [Dynamic Programming Algorithms](#dynamic-programming-algorithms)
@@ -25,7 +25,7 @@ They are fundamental to efficient coding and good software design.
   - [Longest Common Subsequence](#longest-common-subsequence)
 - [Greedy Algorithms](#greedy-algorithms)
   - [Activity Selection Problem](#activity-selection-problem)
-  - [Kruskal's Minimum Spanning Tree (MST)](#kruskals-minimum-spanning-tree)
+  - [Kruskal's Minimum Spanning Tree (MST)](#kruskals-minimum-spanning-tree-mst)
   - [Huffman Coding](#huffman-coding)
 
 ## Sorting Algorithms
