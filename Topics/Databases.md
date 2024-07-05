@@ -7,7 +7,7 @@ They are fundamental to efficient coding and good software design.
 - [Database Management Systems (DBMS)](#database-management-systems-dbms)
   - [Database Management Systems (DBMS)](#database-management-systems-dbms-1)
   - [Relational Databases](#Relational-Databases)
-  - [SQL](#SQL)
+  - [SQL (Structured Query Language)](#SQL)
   - [NoSQL Databases](#NoSQL-Databases)
 - [Database Operations](#Database-Operations)
   - [CRUD Operations](#CRUD-Operations)
@@ -44,13 +44,13 @@ CREATE TABLE Employees (
     Department VARCHAR(50)
 );
 ```
-The `CREATE TABLE` statement operates at the logical level, defining the structure of the Employees table.
+In the previous example, the `CREATE TABLE` statement operates at the logical level, defining the structure of the Employees table.
 - **View Level (External Level)**: This is the highest level of abstraction and it describes only part of the entire database. The view level provides a user-friendly way of accessing the database as it only displays information that is relevant to a user. It abstracts away the complexities of the physical and logical levels. For example, a user might interact with a view that shows a subset of the data from a table or a join of multiple tables.
 ```
 -- View Level
 SELECT Name, Position FROM Employees WHERE Department = 'Sales';
 ```
-The `SELECT` statement operates at the view level, retrieving only the `Name` and `Position` of employees in the ‘Sales’ department.
+In the previous example, the `SELECT` statement operates at the view level, retrieving only the `Name` and `Position` of employees in the ‘Sales’ department.
 
 #### <ins>Data Independence</ins>
 Data independence means changes to the database structure do not affect the applications that use it. There are two types:
@@ -63,7 +63,7 @@ DBMSs use complex algorithms and data structures to quickly retrieve data. For i
 CREATE INDEX idx_employee_name ON Employees (Name);
 SELECT * FROM Employees WHERE Name = 'John Doe';
 ```
-In this example, the `CREATE INDEX` statement creates an index on the `Name` column of the `Employees` table. This index can significantly speed up the `SELECT` statement that searches for employees by name.
+In the previous example, the `CREATE INDEX` statement creates an index on the `Name` column of the `Employees` table. This index can significantly speed up the `SELECT` statement that searches for employees by name.
 
 #### <ins>Data Integrity and Security</ins> 
 DBMSs enforce data integrity through a set of integrity rules that the database must never violate. DBMSs also manage data security by controlling who can access the database and what operations they can perform. Here’s an example of a SQL statement that enforces data integrity:
@@ -74,7 +74,7 @@ CREATE TABLE Orders (
     Quantity INT CHECK (Quantity > 0)
 );
 ```
-In this example, the `REFERENCES` keyword enforces referential integrity (every `ProductID` in the `Orders` table must exist in the `Products` table), and the `CHECK` keyword enforces domain integrity (the Quantity must be greater than 0).
+In the previous example, the `REFERENCES` keyword enforces referential integrity (every `ProductID` in the `Orders` table must exist in the `Products` table), and the `CHECK` keyword enforces domain integrity (the Quantity must be greater than 0).
 
 #### <ins>Data Administration</ins> 
 DBMSs provide tools for data administration tasks like backup and recovery, data import/export, and performance monitoring and tuning. These tasks are typically performed using the DBMS’s administrative interfaces and are not usually done with code.
@@ -90,7 +90,7 @@ SELECT * FROM Employees WHERE Position = 'Software Engineer';
 UPDATE Employees SET Position = 'Senior Software Engineer' WHERE Name = 'John Doe';
 DELETE FROM Employees WHERE Name = 'John Doe';
 ```
-These SQL statements perform the basic <ins>CRUD</ins> operations: Create (INSERT), Read (SELECT), Update (UPDATE), and Delete (DELETE).
+In the previous example, these SQL statements perform the basic <ins>CRUD</ins> operations: Create (INSERT), Read (SELECT), Update (UPDATE), and Delete (DELETE).
 
 
 
@@ -105,5 +105,101 @@ A relational database is a type of database that stores and provides access to d
 - **Relations**: Relations or relationships are established between tables in the database. The most common types of relations are one-to-one, one-to-many, and many-to-many.
 - **Normalization**: Normalization is the process of organizing data in a database to avoid duplication and redundancy, and improve data integrity.
 - **SQL (Structured Query Language)**: SQL is a programming language used by most relational databases for querying and managing data.
+
+
+
+### SQL (Structured Query Language)
+
+#### <ins>Purpose</ins>
+SQL is used to perform all types of data operations in a relational database. This includes creating databases and tables, inserting, updating, and deleting data, and querying the database to retrieve data.
+
+#### <ins>SQL Statements</ins> 
+SQL is composed of statements, each of which performs a specific task. Some common SQL statements include:
+- `SELECT`: Retrieves data from one or more tables.
+- `INSERT INTO`: Inserts new data into a table.
+- `UPDATE`: Modifies existing data in a table.
+- `DELETE`: Removes data from a table.
+- `CREATE TABLE`: Creates a new table.
+- `DROP TABLE`: Deletes a table.
+
+#### <ins>Querying Data</ins> 
+One of the most common uses of SQL is to query data. SQL provides a powerful and flexible way to specify what data you want to retrieve, including filtering, sorting, and aggregating data.
+
+#### <ins>Data Definition Language (DDL)</ins> 
+This part of SQL allows you to define and manage database objects. DDL commands include `CREATE`, `ALTER`, and `DROP`.
+```
+-- Create a new table
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Address VARCHAR(100)
+);
+```
+
+#### <ins>Data Manipulation Language (DML)</ins> 
+This part of SQL is used for managing data within database objects. DML commands include `SELECT`, `INSERT`, `UPDATE`, and `DELETE`.
+```
+-- Query data from the table
+SELECT * FROM Customers WHERE CustomerID = 1;
+
+-- Insert data into the table
+INSERT INTO Customers (CustomerID, Name, Address) VALUES (1, 'John Doe', '123 Main St');
+
+-- Update data in the table
+UPDATE Customers SET Address = '456 Oak St' WHERE CustomerID = 1;
+
+-- Update data in the table
+UPDATE Customers SET Address = '456 Oak St' WHERE CustomerID = 1;
+```
+
+#### <ins>Data Control Language (DCL)</ins> 
+This part of SQL is used to control access to data stored in a database. DCL commands include `GRANT` and `REVOKE`.
+```
+GRANT SELECT, INSERT, UPDATE ON my_database.my_table TO 'someuser'@'somehost';
+```
+In the previous example, the user `someuser` at host `somehost` is given `SELECT`, `INSERT`, and `UPDATE` privileges on `my_table` in `my_database`.
+
+```
+REVOKE INSERT ON my_database.my_table FROM 'someuser'@'somehost';
+```
+In the previous example, the `INSERT` privilege on `my_table` in `my_database` is taken away from the user `someuser` at host somehost.
+
+#### <ins>Joins</ins> 
+SQL allows you to combine rows from two or more tables based on a related column. The most common types of joins are `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, and `FULL JOIN`.
+- **INNER JOIN**: The `INNER JOIN` keyword selects records that have matching values in both tables.
+```
+SELECT Orders.OrderID, Customers.CustomerName
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+```
+
+- **LEFT JOIN (or LEFT OUTER JOIN)**: The `LEFT JOIN` keyword returns all records from the left table (table1), and the matched records from the right table (table2). The result is `NULL` on the right side, if there is no match.
+```
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+```
+
+- **RIGHT JOIN (or RIGHT OUTER JOIN)**: The `RIGHT JOIN` keyword returns all records from the right table (table2), and the matched records from the left table (table1). The result is `NULL` on the left side, when there is no match.
+```
+SELECT Orders.OrderID, Customers.CustomerName
+FROM Orders
+RIGHT JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+```
+
+- **FULL JOIN (or FULL OUTER JOIN)**: The `FULL JOIN` keyword returns all records when there is a match in either left (table1) or right (table2) table records.
+```
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+FULL JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+
+```
+
+In all the previous examples, `Customers` and `Orders` are tables in a database. `CustomerID` is a column present in both tables that is used to match rows between them. Please replace these with your actual table names and column names.
+
+
+
+
+
 
 
