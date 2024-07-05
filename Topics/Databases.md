@@ -200,6 +200,24 @@ In all the previous examples, `Customers` and `Orders` are tables in a database.
 
 
 
+### NoSQL Databases
+NoSQL databases are non-relational databases that are designed to scale out across many servers, and they’re optimized for read and write operations. They are a great fit for many modern applications such as mobile, web, and gaming that require flexible, scalable, high-performance, and highly functional databases to provide great user experiences. Here are some key points to understand about NoSQL databases:
 
+#### <ins>NoSQL Database Types</ins>
+There are four main types of NoSQL databases - Document databases, Key-Value stores, Wide-Column stores, and Graph databases. Each type is designed to support specific data models and to solve specific problems.
 
+#### <ins>Schema-less</ins>
+NoSQL databases are typically schema-less, which means they allow for more flexibility in storing complex data structures.
+
+#### <ins>Scalability</ins>
+NoSQL databases are designed to scale out by distributing the data across many servers. This is different from SQL databases, which are typically scaled up by adding more powerful hardware to a single server.
+
+#### <ins>Performance</ins>
+NoSQL databases are optimized for specific types of operations and can provide high performance for certain workloads.
+
+#### <ins>CAP Theorem</ins>
+According to the CAP theorem, a distributed system can only guarantee two out of three characteristics: Consistency, Availability, and Partition Tolerance. Different types of NoSQL databases make different trade-offs between these characteristics.
+
+#### <ins>Use Cases</ins>
+NoSQL databases are a good fit for use cases where data is not structured or schema is changing rapidly, or where horizontal scalability and speed are important.
 
