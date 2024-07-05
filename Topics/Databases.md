@@ -31,7 +31,7 @@ The DBMS category covers the systems used for database management. It introduces
 ### Database Management Systems (DBMS)
 A Database Management System (DBMS) is a software system that enables users to define, create, maintain and control access to the database. It acts as an interface between the user and the database and manages the interaction between them. Here are some key points to understand about DBMS:
 
-#### Data Abstraction 
+#### <ins>Data Abstraction</ins>
 Data abstraction refers to the DBMS’s ability to hide the complexities of how data is stored and managed. There are three levels of data abstraction:
 - **Physical Level (Internal Level)**: This is the lowest level of data abstraction. It describes how the data is actually stored in the database. It deals with complex low-level data structures, storage allocation, data access paths, and indexes. For instance, it might specify that data is stored in B-trees or hash tables. Users typically don’t interact with this level.
 - **Logical Level (Conceptual Level)**: This level comprises information about what data is stored in the database and the relationships among the data. It describes the structure of the whole database for a community of users. It abstracts away the underlying storage and implementation details. For example, in a relational database, the logical level will specify the tables, fields, and relationships between tables.
@@ -52,12 +52,12 @@ SELECT Name, Position FROM Employees WHERE Department = 'Sales';
 ```
 The `SELECT` statement operates at the view level, retrieving only the `Name` and `Position` of employees in the ‘Sales’ department.
 
-#### Data Independence 
+#### <ins>Data Independence</ins>
 Data independence means changes to the database structure do not affect the applications that use it. There are two types:
 - **Physical Data Independence**: Changes to the physical storage of data do not require changes to the logical schema.
 - **Logical Data Independence**: Changes to the logical schema do not affect the application’s ability to access data.
 
-#### Efficient Data Access 
+#### <ins>Efficient Data Access</ins> 
 DBMSs use complex algorithms and data structures to quickly retrieve data. For instance, a DBMS might use B-trees for indexing, which can significantly speed up data retrieval. Here’s a simple SQL example that uses an index to speed up queries:
 ```
 CREATE INDEX idx_employee_name ON Employees (Name);
@@ -65,27 +65,30 @@ SELECT * FROM Employees WHERE Name = 'John Doe';
 ```
 In this example, the `CREATE INDEX` statement creates an index on the `Name` column of the `Employees` table. This index can significantly speed up the `SELECT` statement that searches for employees by name.
 
-- **Data Integrity and Security**: If data is always accessed through the DBMS, the DBMS can enforce integrity constraints on the data. Also, DBMS provides security to protect data.
-- **Data Administration**: When several users share the data, centralizing the administration of data can offer significant improvements.
-- **Concurrent Access and Crash Recovery**: DBMS schedules concurrent access to the data in such a manner that only one user can access the same data at a time. Also, DBMS provides crash recovery mechanisms to protect data.
-- **Reduced Application Development Time**: DBMS supports many important functions that are common to many applications accessing data stored in the DBMS. This, in conjunction with the high-level interface to the data, facilitates quick development of applications.
-
-
-
-
-#### Code Example
+#### <ins>Data Integrity and Security</ins> 
+DBMSs enforce data integrity through a set of integrity rules that the database must never violate. DBMSs also manage data security by controlling who can access the database and what operations they can perform. Here’s an example of a SQL statement that enforces data integrity:
 ```
-void BubbleSort(int[] arr)
-{
-    int n = arr.Length;
-    for (int i = 0; i < n - 1; i++)
-        for (int j = 0; j < n - i - 1; j++)
-            if (arr[j] > arr[j + 1])
-            {
-                // swap arr[j] and arr[j+1]
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-}
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    ProductID INT REFERENCES Products(ProductID),
+    Quantity INT CHECK (Quantity > 0)
+);
 ```
+In this example, the `REFERENCES` keyword enforces referential integrity (every `ProductID` in the `Orders` table must exist in the `Products` table), and the `CHECK` keyword enforces domain integrity (the Quantity must be greater than 0).
+
+#### <ins>Data Administration</ins> 
+DBMSs provide tools for data administration tasks like backup and recovery, data import/export, and performance monitoring and tuning. These tasks are typically performed using the DBMS’s administrative interfaces and are not usually done with code.
+
+#### <ins>Concurrent Access and Crash Recovery</ins> 
+DBMSs manage concurrent access to data, ensuring that multiple users can safely access the data at the same time without conflicts. They also provide crash recovery mechanisms to protect data in case of a system failure. These features are built into the DBMS and are not typically controlled with code.
+
+#### <ins>Reduced Application Development Time</ins> 
+Since DBMSs provide many common functions needed by applications (like CRUD operations and transaction management), using a DBMS can significantly reduce application development time. For example, instead of writing complex code to read and write data to files, a developer can use simple SQL statements:
+```
+INSERT INTO Employees (Name, Position) VALUES ('John Doe', 'Software Engineer');
+SELECT * FROM Employees WHERE Position = 'Software Engineer';
+UPDATE Employees SET Position = 'Senior Software Engineer' WHERE Name = 'John Doe';
+DELETE FROM Employees WHERE Name = 'John Doe';
+```
+These SQL statements perform the basic <ins>CRUD</ins> operations: Create (INSERT), Read (SELECT), Update (UPDATE), and Delete (DELETE).
+
