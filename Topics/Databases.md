@@ -24,6 +24,10 @@ They are fundamental to efficient coding and good software design.
 - [Database Security]
   - [Database Security]
   - [Database Backup and Recovery]
+
+
+
+
  
 ## Database Management Systems (DBMS)
 The DBMS category covers the systems used for database management. It introduces DBMS and its role, explores relational databases and SQL, and discusses NoSQL databases and their unique use cases. This provides a foundation for understanding various database systems and their applications.
@@ -200,6 +204,7 @@ In all the previous examples, `Customers` and `Orders` are tables in a database.
 
 
 
+
 ### <ins>NoSQL Databases</ins>
 NoSQL databases are non-relational databases that are designed to scale out across many servers, and they’re optimized for read and write operations. They are a great fit for many modern applications such as mobile, web, and gaming that require flexible, scalable, high-performance, and highly functional databases to provide great user experiences. Here are some key points to understand about NoSQL databases:
 
@@ -221,3 +226,54 @@ According to the CAP theorem, a distributed system can only guarantee two out of
 #### Use Cases
 NoSQL databases are a good fit for use cases where data is not structured or schema is changing rapidly, or where horizontal scalability and speed are important.
 
+
+
+
+
+## Database Operations
+Database operations are the fundamental actions that a database management system (DBMS) allows users to perform on the data stored in databases.
+
+### <ins>CRUD Operations</ins>
+CRUD stands for **Create**, **Read**, **Update**, and **Delete**. These are the four basic functions of persistent storage.
+
+#### Create
+This operation is used to add new records to the database. In SQL, this is typically done with the `INSERT` statement. For example:
+```
+INSERT INTO Employees (FirstName, LastName, Age)
+VALUES ('John', 'Doe', 30);
+```
+
+#### Read
+This operation is used to retrieve data from the database. In SQL, this is typically done with the `SELECT` statement. For example:
+```
+SELECT FirstName, LastName FROM Employees;
+```
+
+#### Update
+This operation is used to modify existing records in the database. In SQL, this is typically done with the `UPDATE` statement. For example:
+```
+UPDATE Employees SET Age = 31 WHERE FirstName = 'John' AND LastName = 'Doe';
+```
+
+#### Delete
+This operation is used to remove existing records from the database. In SQL, this is typically done with the `DELETE` statement. For example:
+```
+DELETE FROM Employees WHERE FirstName = 'John' AND LastName = 'Doe';
+```
+
+
+
+### <ins>ACID Properties</ins>
+ACID stands for **Atomicity**, **Consistency**, **Isolation**, and **Durability**. These are four key properties that most database management systems (DBMS) offer as guarantees when handling transactions. Here iss a breakdown:
+
+#### Atomicity
+This property ensures that a transaction (a sequence of database operations) occurs entirely or not at all. If a transaction fails at any point, all changes made in the current transaction are rolled back and the database remains unchanged.
+
+#### Consistency
+This property ensures that a transaction brings the database from one valid state to another. The database should satisfy a certain set of constraints before and after the transaction.
+
+#### Isolation
+This property ensures that concurrent execution of transactions leaves the database in the same state as if the transactions were executed sequentially.
+
+#### Durability
+This property ensures that once a transaction has been committed, it will remain committed even in the case of a system failure.
