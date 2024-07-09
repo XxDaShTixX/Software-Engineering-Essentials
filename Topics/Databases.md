@@ -9,9 +9,9 @@ They are fundamental to efficient coding and good software design.
   - [Relational Databases](#relational-databases)
   - [SQL (Structured Query Language)](#sql-structured-query-language)
   - [NoSQL Databases](#nosql-databases)
-- [Database Operations]
-  - [CRUD Operations]
-  - [ACID Properties]
+- [Database Operations](#acid-properties)
+  - [CRUD Operations](#crud-operations)
+  - [ACID Properties](#acid-properties)
 - [Database Design]
   - [Database Schema]
   - [Normalization]
@@ -277,3 +277,74 @@ This property ensures that concurrent execution of transactions leaves the datab
 
 #### Durability
 This property ensures that once a transaction has been committed, it will remain committed even in the case of a system failure.
+
+
+
+
+
+## Database Design
+Database Design section is about the strategies and principles used to design effective and efficient databases. It includes the following subcategories:
+
+### <ins>Database Schema</ins>
+A database schema is a logical design or blueprint that defines the structure, organization, and relationships within a database. It represents the arrangement of data in tables, along with the attributes, constraints, and relationships associated with those tables. As mentioned under the [Database Management Systems (DBMS)](#database-management-systems-dbms-1) section, the main types of database schemas are: Physical, Logical and View. These are about the overall organization of the database of different levels of abstraction.
+
+On the other hand, we have the **Star**, **Snowflake**, and **Galaxy** schemas, which are specific designs used in data warehousing environments. They are logical models used to organize large amounts of data in a way that makes it more accessible and efficient for querying:
+
+#### <ins>Star Schema</ins>
+This is the simplest style of data mart schema. It consists of one or more fact tables referencing any number of dimension tables.
+
+![image](https://github.com/XxDaShTixX/Software-Engineering-Essentials/assets/11358087/28f03500-e18f-48a0-8d69-462cbf07168b)
+Reference: [Microsoft Learn](https://learn.microsoft.com/en-us/power-bi/guidance/star-schema)
+
+##### Example
+Let’s consider a simple retail system. In this system, we have a `Sales` fact table which contains keys to dimension tables like `Product`, `Customer`, `Time`, and `Store`. Each row in the `Sales` table represents a single sale and references the relevant entries in the other tables. For example, a row in the `Sales` table might reference a particular product sold, the customer who bought it, the time of the sale, and the store where the sale took place.
+```
+Sales (fact table)
+- SaleID
+- ProductID
+- CustomerID
+- TimeID
+- StoreID
+- Quantity
+- TotalCost
+
+Product (dimension table)
+- ProductID
+- ProductName
+- ProductCategory
+
+Customer (dimension table)
+- CustomerID
+- CustomerName
+- CustomerAddress
+
+Time (dimension table)
+- TimeID
+- Date
+- Month
+- Year
+
+Store (dimension table)
+- StoreID
+- StoreName
+- StoreLocation
+```
+
+
+
+#### <ins>Snowflake Schema</ins>
+This is a more complex database schema. It’s a version of the star schema where the dimensional hierarchies are broken into separate tables.
+
+#### <ins>Galaxy Schema</ins>
+This schema is a combination of multiple star schemas or snowflake schemas. It’s used when we need to model complex business requirements which include multiple fact tables.
+
+
+
+
+
+
+### <ins>Normalization</ins>
+Database normalization is the process of structuring a relational database in accordance with a series of so-called normal forms in order to reduce data redundancy and improve data integrity. It was first proposed by British computer scientist Edgar F. Codd as part of his relational model. Normalization entails organizing the columns (attributes) and tables (relations) of a database to ensure that their dependencies are properly enforced by database integrity constraints. It is accomplished by applying some formal rules either by a process of synthesis (creating a new database design) or decomposition (improving an existing database design).
+
+### Normalization
+Indexes are data structures that can increase a database's efficiency in accessing tables. Indexes are not required; the database can function properly without them, but query response time can be slower. Every index is associated with a table and has a key, which is formed by one or more table columns. When a query needs to access a table that has an index, the database can decide to use the index to retrieve records faster3. Indexes are critical to query speed and efficiency3. They optimize data access and improve database performance by helping the database execute SQL queries faster.
