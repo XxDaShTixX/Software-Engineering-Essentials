@@ -86,3 +86,43 @@ Behavioral design patterns are about identifying common communication patterns b
 
 
 
+
+# Deep Dive into Each Design Pattern
+Let’s take a look at the previously mentioned design patterns and their implementation in C#. I’ll provide a brief overview, structure, and a simple real-world example for each.
+
+## Singleton Pattern (Creational)
+### Purpose: 
+Ensures a class has only one instance and provides a global point of access to it.
+### Real World Example:
+A printer spooler in an operating system. There should be only one spooler to avoid multiple print commands sent to the printer at the same time.
+### Structure:
+```
+public sealed class Singleton
+{
+    private static Singleton instance = null;
+    private static readonly object padlock = new object();
+
+    Singleton()
+    {
+    }
+
+    public static Singleton Instance
+    {
+        get
+        {
+            lock (padlock)
+            {
+                if (instance == null)
+                {
+                    instance = new Singleton();
+                }
+                return instance;
+            }
+        }
+    }
+}
+```
+
+
+
+
