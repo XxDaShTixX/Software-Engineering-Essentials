@@ -7,8 +7,8 @@
 - [Database Operations](#acid-properties)
   - [CRUD Operations](#crud-operations)
   - [ACID Properties](#acid-properties)
-- [Database Design]
-  - [Database Schema]
+- [Database Design](#database-design)
+  - [Database Schema](#database-schema)
   - [Normalization]
   - [Indexes]
 - [Data Processing]
