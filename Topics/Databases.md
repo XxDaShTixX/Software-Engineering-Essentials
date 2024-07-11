@@ -9,7 +9,7 @@
   - [ACID Properties](#acid-properties)
 - [Database Design](#database-design)
   - [Database Schema](#database-schema)
-  - [Normalization]
+  - [Normalization](#normalization)
   - [Indexes]
 - [Data Processing]
   - [ETL (Extract, Transform, Load)]
@@ -574,4 +574,24 @@ SELECT * FROM Students WHERE State = @StateName;  -- This is the name of the sta
 
 
 ## Normalization
-Indexes are data structures that can increase a database's efficiency in accessing tables. Indexes are not required; the database can function properly without them, but query response time can be slower. Every index is associated with a table and has a key, which is formed by one or more table columns. When a query needs to access a table that has an index, the database can decide to use the index to retrieve records faster3. Indexes are critical to query speed and efficiency3. They optimize data access and improve database performance by helping the database execute SQL queries faster.
+Normalization, in the context of SQL, is the process of organizing data within a relational database to eliminate data anomalies, such as redundancy. In simpler terms, it involves breaking down a large, complex table into smaller and simpler tables while maintaining data relationships.
+
+### <ins>Importance of Normalization</ins>
+- **Reduces redundancy**: By splitting data into smaller tables, redundancy (when the same information is stored multiple times) can be avoided.
+- **Improves query performance**: Faster query execution can be performed on smaller tables that have undergone normalization.
+- **Minimizes update anomalies**: With normalized tables, data can be easily updated without affecting other records.
+- **Enhances data integrity**: It ensures that data remains consistent and accurate.
+
+### <ins>Normalization Rules</ins>
+- **First Normal Form (1NF)**: Each column is unique in 1NF.
+  - Each table has rows and columns, like a grid. Each cell (or intersection of a row and column) should have only one value, not a list or set of values.
+- **Second Normal Form (2NF)**: The entity should be considered already in 1NF, and all attributes within the entity should depend solely on the unique identifier of the entity.
+  - All information in the table should depend on the whole primary key (a unique identifier for the record). This is especially relevant when the primary key is made up of several columns.
+- **Third Normal Form (3NF)**: The entity should be considered already in 2NF, and no column entry should be dependent on any other entry (value) other than the key for the table. If such an entity exists, move it outside into a new table.
+  - No non-key column (a column that’s not part of the primary key) should depend on another non-key column. In other words, each non-key column should depend only on the primary key.
+- **Boyce-Codd Normal Form (BCNF)**: 3NF and all tables in the database should have only one primary key.
+  - This is a stricter version of 3NF. Every determinant (something that determines another value) must be a candidate key (a key that can be a primary key).
+- **Fourth Normal Form (4NF)**: Tables cannot have multi-valued dependencies on a Primary Key.
+  - We should not have a situation where two or more independent multi-valued facts about an entity are combined into a single table.
+- **Fifth Normal Form (5NF)**: A composite key shouldn’t have any cyclic dependencies.
+  - Also known as `Project-Join Normal Form` (PJNF). Any portion of a table, no matter how small, should be able to be reconstructed using joins of other tables.
