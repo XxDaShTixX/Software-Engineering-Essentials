@@ -93,7 +93,7 @@ Let’s take a look at the previously mentioned design patterns and their implem
 ## Singleton Pattern (Creational)
 ### Purpose: 
 Ensures a class has only one instance and provides a global point of access to it.
-### Real World Example:
+### Real-world Example:
 A printer spooler in an operating system. There should be only one spooler to avoid multiple print commands sent to the printer at the same time.
 ### Structure:
 ```
@@ -123,6 +123,150 @@ public sealed class Singleton
 }
 ```
 
+## Factory Pattern (Creational)
+### Purpose: 
+Provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
+### Real-world Example:
+A hiring manager is a good example of the Factory Method. The hiring manager is responsible for hiring employees. The basic steps of the hiring process are the same (publish job opening, collect resumes, conduct interviews), but the actual part of creating the employee is not done by the hiring manager, but by the specific departments (factories) which need the employees.
+### Structure:
+```
+public abstract class Product
+{
+    public abstract void Use();
+}
 
+public class ConcreteProductA : Product
+{
+    public override void Use()
+    {
+        // Implementation for Product A
+    }
+}
 
+public class ConcreteProductB : Product
+{
+    public override void Use()
+    {
+        // Implementation for Product B
+    }
+}
 
+public abstract class Factory
+{
+    public abstract Product CreateProduct();
+}
+
+public class ConcreteFactoryA : Factory
+{
+    public override Product CreateProduct()
+    {
+        return new ConcreteProductA();
+    }
+}
+
+public class ConcreteFactoryB : Factory
+{
+    public override Product CreateProduct()
+    {
+        return new ConcreteProductB();
+    }
+}
+
+```
+
+## Abstract Factory Pattern (Creational)
+### Purpose: 
+Provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+### Real-world Example:
+An animal factory is a good example of the Abstract Factory pattern. The factory can create different types of animals (like a cat or a dog), and each animal type can have different breeds. The Abstract Factory pattern allows you to create families of related objects without specifying their concrete classes.
+### Structure:
+```
+public abstract class AbstractProductA
+{
+    public abstract void UseProductA();
+}
+
+public abstract class AbstractProductB
+{
+    public abstract void UseProductB();
+}
+
+public abstract class AbstractFactory
+{
+    public abstract AbstractProductA CreateProductA();
+    public abstract AbstractProductB CreateProductB();
+}
+
+public class ConcreteProductA1 : AbstractProductA
+{
+    public override void UseProductA()
+    {
+        // Implementation for Product A1
+    }
+}
+
+public class ConcreteProductB1 : AbstractProductB
+{
+    public override void UseProductB()
+    {
+        // Implementation for Product B1
+    }
+}
+
+public class ConcreteFactory1 : AbstractFactory
+{
+    public override AbstractProductA CreateProductA()
+    {
+        return new ConcreteProductA1();
+    }
+
+    public override AbstractProductB CreateProductB()
+    {
+        return new ConcreteProductB1();
+    }
+}
+```
+
+## Builder Pattern (Creational)
+### Purpose: 
+Separates the construction of a complex object from its representation so that the same construction process can create different representations.
+### Real-world Example:
+Consider a construction of a complex Pizza. The construction process is the same but the parts (toppings, crust type, size etc.) can vary. The Builder pattern allows you to construct the Pizza in steps, and at the end, `GetResult()` gives you the final product.
+### Structure:
+```
+public abstract class Builder
+{
+    public abstract void BuildPartA();
+    public abstract void BuildPartB();
+    public abstract Product GetResult();
+}
+
+public class ConcreteBuilder : Builder
+{
+    private Product _product = new Product();
+
+    public override void BuildPartA()
+    {
+        // Implement part A construction
+    }
+
+    public override void BuildPartB()
+    {
+        // Implement part B construction
+    }
+
+    public override Product GetResult()
+    {
+        return _product;
+    }
+}
+
+public class Director
+{
+    public void Construct(Builder builder)
+    {
+        builder.BuildPartA();
+        builder.BuildPartB();
+    }
+}
+```
