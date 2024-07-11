@@ -14,9 +14,20 @@
   - [Builder Pattern (Creational)](#builder-pattern-creational)
   - [Prototype Pattern (Creational)](#prototype-pattern-creational)
   - [Object Pool Pattern (Creational)](#object-pool-pattern-creational)
-  - [Adapter Pool Pattern (Structural)](#adapter-pattern-structural)
-
-
+  - [Adapter Pattern (Structural)](#adapter-pattern-structural)
+  - [Bridge Pattern (Structural)](#bridge-pattern-structural)
+  - [Composite Pattern (Structural)](#composite-pattern-structural)
+  - [Decorator Pattern (Structural)](#decorator-pattern-structural)
+  - [Facade Pattern (Structural)](#facade-pattern-structural)
+  - [Flyweight Pattern (Structural)](#flyweight-pattern-structural)
+  - [Proxy Pattern (Structural)](#flyweight-pattern-structural)
+  - [Observer Pattern (Behavioral)](#observer-pattern-behavioral)
+  - [State Pattern (Behavioral)](#state-pattern-behavioral)
+  - [Strategy Pattern (Behavioral)](#strategy-pattern-behavioral)
+  - [Template Method Pattern (Behavioral)](#template-method-pattern-behavioral)
+  - [Visitor Pattern (Behavioral)](#visitor-pattern-behavioral)
+  - [Command Pattern (Behavioral)](#command-pattern-behavioral)
+  - [Iterator Pattern (Behavioral)](#iterator-pattern-behavioral)
  
 # Design Patterns
 Design patterns are reusable solutions to common problems that arise during software development. 
