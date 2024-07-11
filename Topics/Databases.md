@@ -1,8 +1,3 @@
-# Algorithms
-Algorithms are a set of instructions that are followed to solve a problem or achieve a particular outcome. 
-In the context of computer science and software engineering, algorithms are often used to manipulate data in various structures to produce a specific result. 
-They are fundamental to efficient coding and good software design.
-
 # Table of Content
 - [Database Management Systems (DBMS)](#database-management-systems-dbms)
   - [Database Management Systems (DBMS)](#database-management-systems-dbms-1)
