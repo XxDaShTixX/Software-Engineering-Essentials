@@ -11,8 +11,9 @@
   - [Database Schema](#database-schema)
   - [Normalization](#normalization)
   - [Indexes](#indexes)
-- [Data Processing]
-  - [ETL (Extract, Transform, Load)]
+- [Data Processing](#data-processing)
+  - [Data Processing Steps](#data-processing-steps)
+  - [ETL (Extract, Transform, Load)](#etl-extract-transform-load)
 - [Data Storage and Retrieval]
   - [Data Warehousing]
   - [Distributed Databases]
