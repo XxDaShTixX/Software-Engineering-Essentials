@@ -595,3 +595,37 @@ Normalization, in the context of SQL, is the process of organizing data within a
   - We should not have a situation where two or more independent multi-valued facts about an entity are combined into a single table.
 - **Fifth Normal Form (5NF)**: A composite key shouldn’t have any cyclic dependencies.
   - Also known as `Project-Join Normal Form` (PJNF). Any portion of a table, no matter how small, should be able to be reconstructed using joins of other tables.
+ 
+
+
+
+
+## Indexes
+An index in SQL is a database structure that improves the speed of data retrieval operations on a database table. It works like an index in a book, allowing the database to find data without scanning the entire table.
+
+### <ins>Importance of Indexes</ins>
+Indexes are used to speed up queries and improve database performance by reducing the amount of data that needs to be scanned to find the desired information3. They hold pointers that refer to the data stored in a database, which makes it easier to locate the required data records in a database table1.
+
+### <ins>Types of Indexes</ins>
+- **Clustered Index**: Determines the physical order of data in a table. Each table can have only one clustered index.
+- **Non-Clustered Index**: Creates a separate data structure that contains a copy of the indexed data, but does not affect the physical order of the table data.
+- **Unique Index**: Enforces uniqueness on the values in the indexed columns.
+- **Full-Text Index**: Used for text-based searches, and allows for fast searching of large amounts of text data.
+- **Hash Index**: Memory-optimized access.
+- **Memory-Optimized Non-Clustered Index**: Low memory consumption.
+- **Columnstore Index**: Column-based processing.
+- **Index with Included Columns**: Extended nonclustered index.
+- **Index on Computed Columns**: Derived index values.
+- **Filtered Index**: Subset of data.
+- **Spatial Index**: Efficient spatial operation.
+- **Clustered Index**: Determines the physical order of data in a table. Each table can have only one clustered index.
+
+### <ins>Creating an Index</ins>
+```
+CREATE INDEX index_name ON table_name (column_name);
+```
+This statement creates a new index with the name `index_name` on the `table_name`. The `column_name` is the column on which the index is being created.
+
+### <ins>Considerations</ins>
+While indexes can improve query performance, they also take up space on disk, and they can slow down data modification operations such as inserts, updates, and deletes. Additionally, too many indexes can negatively impact database performance, as the database engine must spend more time maintaining the indexes.
+
