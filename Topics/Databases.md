@@ -285,61 +285,293 @@ A database schema is a logical design or blueprint that defines the structure, o
 
 On the other hand, we have the **Star**, **Snowflake**, and **Galaxy** schemas, which are specific designs used in data warehousing environments. They are logical models used to organize large amounts of data in a way that makes it more accessible and efficient for querying:
 
+### <ins>Hierarchical Database Model</ins>
+This schema represents data in a tree-like structure, where each record has a single parent or root. Data is stored hierarchically and accessed using a single path.
+
+![image](https://github.com/XxDaShTixX/Software-Engineering-Essentials/assets/11358087/cb6dfdb5-79cf-423f-b708-92f2574730c4)
+Reference: [Link](https://hyperskill.org/learn/step/17042)
+
+#### Example
+Consider a simple organization hierarchy where each employee has a manager. The `Employee` table might look like this:
+```
+CREATE TABLE Employee (
+    ID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    ManagerID INT,
+    FOREIGN KEY (ManagerID) REFERENCES Employee(ID)
+);
+```
+In this table, each employee is a record. The ‘ManagerID’ field points to the record of the employee’s manager, creating a hierarchical structure. You can query the hierarchy with a recursive common table expression (CTE) in SQL. Here’s an example of how to get all subordinates of a specific manager:
+```
+WITH EmployeeHierarchy AS (
+    SELECT ID, Name, ManagerID
+    FROM Employee
+    WHERE ManagerID = @ManagerID  -- This is the ID of the manager you're starting from
+    UNION ALL
+    SELECT E.ID, E.Name, E.ManagerID
+    FROM Employee E
+    INNER JOIN EmployeeHierarchy EH ON E.ManagerID = EH.ID
+)
+SELECT * FROM EmployeeHierarchy;
+```
+This query will return all employees who are subordinates (at any level) of the manager with the ID ‘@ManagerID’. The `UNION ALL` operator is used to join the initial set of employees (those directly managed by `@ManagerID`) with their subordinates, and this process continues recursively until there are no more subordinates to add. This effectively traverses the hierarchy.
+
+### <ins>Network Model</ins>
+This schema represents data as a flexible graph structure, allowing each record to have multiple parent and child records.
+
+![image](https://github.com/XxDaShTixX/Software-Engineering-Essentials/assets/11358087/da0f6c10-edf6-4a0b-a007-06b91023e22f)
+Reference: [Link](https://afteracademy.com/blog/what-is-data-model-in-dbms-and-what-are-its-types/)
+
+#### Example
+Consider a simple example where we have `Authors` and `Books`. An author can write multiple books, and a book can have multiple authors. This is a many-to-many relationship which can be represented in a network model.
+```
+CREATE TABLE Authors (
+    ID INT PRIMARY KEY,
+    Name VARCHAR(100)
+);
+
+CREATE TABLE Books (
+    ID INT PRIMARY KEY,
+    Title VARCHAR(100)
+);
+
+CREATE TABLE AuthorBook (
+    AuthorID INT,
+    BookID INT,
+    PRIMARY KEY (AuthorID, BookID),
+    FOREIGN KEY (AuthorID) REFERENCES Authors(ID),
+    FOREIGN KEY (BookID) REFERENCES Books(ID)
+);
+```
+In this setup, the `AuthorBook` table is a junction table that resolves the many-to-many relationship between `Authors` and `Books`. Each record in `AuthorBook` represents a link (or `network`) between an author and a book.
+
+You can query this network with a simple join operation. For example, to get all books written by a specific author:
+```
+SELECT B.Title
+FROM Books B
+INNER JOIN AuthorBook AB ON B.ID = AB.BookID
+WHERE AB.AuthorID = @AuthorID;  -- This is the ID of the author you're interested in
+```
+This query will return the titles of all books written by the author with the ID ‘@AuthorID’. Please replace ‘@AuthorID’ with the actual ID of the author you’re interested in.
+
+### <ins>Relational Model</ins>
+This schema represents data in tables, where each row contains information about a specific item and each column represents a different attribute of that item.
+
+![image](https://github.com/XxDaShTixX/Software-Engineering-Essentials/assets/11358087/44f18269-1c65-4767-87bc-a5d75510083d)
+Reference: [Link](https://web.mit.edu/11.521/www/lectures/lecture10/lec_data_design.html)
+
+#### Example
+In a relational model, data is organized into tables (also known as relations) that consist of rows and columns. Each row represents a record, and each column represents a field of the record. The key idea is that each table has one or more columns designated as its primary key, and other tables can refer to that key, creating a link between the tables. Here’s a simple example using a `Students` and `Courses` scenario:
+```
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Major VARCHAR(50)
+);
+
+CREATE TABLE Courses (
+    CourseID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Department VARCHAR(50)
+);
+
+CREATE TABLE StudentCourses (
+    StudentID INT,
+    CourseID INT,
+    Grade CHAR(1),
+    PRIMARY KEY (StudentID, CourseID),
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+);
+```
+In this setup, the `StudentCourses` table is a junction table that resolves the many-to-many relationship between `Students` and `Courses`. Each record in `StudentCourses` represents a link (or `relation`) between a student and a course.
+
+You can query this relation with a simple join operation. For example, to get all courses taken by a specific student:
+```
+SELECT C.Name
+FROM Courses C
+INNER JOIN StudentCourses SC ON C.CourseID = SC.CourseID
+WHERE SC.StudentID = @StudentID;  -- This is the ID of the student you're interested in
+```
+This query will return the names of all courses taken by the student with the ID `@StudentID`. Please replace `@StudentID` with the actual ID of the student you’re interested in.
+
 ### <ins>Star Schema</ins>
 This is the simplest style of data mart schema. It consists of one or more fact tables referencing any number of dimension tables.
 
-![image](https://github.com/XxDaShTixX/Software-Engineering-Essentials/assets/11358087/28f03500-e18f-48a0-8d69-462cbf07168b)
-Reference: [Microsoft Learn](https://learn.microsoft.com/en-us/power-bi/guidance/star-schema)
+![image](https://github.com/XxDaShTixX/Software-Engineering-Essentials/assets/11358087/f3c01f2a-04fa-4372-83fc-ea90ecaf9619)
+Reference: [Link](https://phoenixnap.com/kb/star-vs-snowflake-schema)
 
 #### Example
 Let’s consider a simple retail system. In this system, we have a `Sales` fact table which contains keys to dimension tables like `Product`, `Customer`, `Time`, and `Store`. Each row in the `Sales` table represents a single sale and references the relevant entries in the other tables. For example, a row in the `Sales` table might reference a particular product sold, the customer who bought it, the time of the sale, and the store where the sale took place.
 ```
-Sales (fact table)
-- SaleID
-- ProductID
-- CustomerID
-- TimeID
-- StoreID
-- Quantity
-- TotalCost
+CREATE TABLE Sales (
+    SaleID INT PRIMARY KEY,
+    ProductID INT,
+    CustomerID INT,
+    Quantity INT,
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
 
-Product (dimension table)
-- ProductID
-- ProductName
-- ProductCategory
+CREATE TABLE Products (
+    ProductID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Category VARCHAR(50)
+);
 
-Customer (dimension table)
-- CustomerID
-- CustomerName
-- CustomerAddress
-
-Time (dimension table)
-- TimeID
-- Date
-- Month
-- Year
-
-Store (dimension table)
-- StoreID
-- StoreName
-- StoreLocation
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    City VARCHAR(50),
+    State VARCHAR(50)
+);
 ```
-
-
+In this setup, `Sales` is the fact table, and `Products` and `Customers` are dimension tables. The dimension data is denormalized into a single table, forming a star schema. You can query this schema with a simple join operation. For example, to get all sales in a specific state:
+```
+SELECT S.SaleID, P.Name AS Product, C.Name AS Customer, C.City, C.State
+FROM Sales S
+INNER JOIN Products P ON S.ProductID = P.ProductID
+INNER JOIN Customers C ON S.CustomerID = C.CustomerID
+WHERE C.State = @StateName;  -- This is the name of the state you're interested in
+```
+This query will return all sales, along with the product name, customer name, city, and state, for all sales in the state with the name `@StateName`. Please replace `@StateName` with the actual name of the state you’re interested in.
 
 ### <ins>Snowflake Schema</ins>
 This is a more complex database schema. It’s a version of the star schema where the dimensional hierarchies are broken into separate tables.
 
+![image](https://github.com/XxDaShTixX/Software-Engineering-Essentials/assets/11358087/8112f3e4-3903-4ab2-b3db-0dd790eefdb0)
+Reference: [Link](https://phoenixnap.com/kb/star-vs-snowflake-schema)
+
+#### Example
+A snowflake schema is a type of star schema, and is used in a data warehouse. It differs from a star schema in that it normalizes hierarchies to eliminate redundancy. That is, the dimension data has been grouped into multiple related tables, forming a shape similar to a snowflake. Here’s a simple example using a `Sales` scenario:
+```
+CREATE TABLE Sales (
+    SaleID INT PRIMARY KEY,
+    ProductID INT,
+    CustomerID INT,
+    Quantity INT,
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+CREATE TABLE Products (
+    ProductID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    CategoryID INT,
+    FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
+);
+
+CREATE TABLE Categories (
+    CategoryID INT PRIMARY KEY,
+    Name VARCHAR(100)
+);
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    CityID INT,
+    FOREIGN KEY (CityID) REFERENCES Cities(CityID)
+);
+
+CREATE TABLE Cities (
+    CityID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    StateID INT,
+    FOREIGN KEY (StateID) REFERENCES States(StateID)
+);
+
+CREATE TABLE States (
+    StateID INT PRIMARY KEY,
+    Name VARCHAR(100)
+);
+```
+In this setup, `Sales` is the fact table, and `Products`, `Categories`, `Customers`, `Cities`, and `States` are dimension tables. The dimension data has been normalized into multiple related tables, forming a snowflake schema. You can query this schema with multiple join operations. For example, to get all sales in a specific state:
+```
+SELECT S.SaleID, P.Name AS Product, C.Name AS Customer, CT.Name AS City, ST.Name AS State
+FROM Sales S
+INNER JOIN Products P ON S.ProductID = P.ProductID
+INNER JOIN Customers C ON S.CustomerID = C.CustomerID
+INNER JOIN Cities CT ON C.CityID = CT.CityID
+INNER JOIN States ST ON CT.StateID = ST.StateID
+WHERE ST.Name = @StateName;  -- This is the name of the state you're interested in
+```
+This query will return all sales, along with the product name, customer name, city, and state, for all sales in the state with the name `@StateName`. Please replace `@StateName` with the actual name of the state you’re interested in.
+
 ### <ins>Galaxy Schema</ins>
 This schema is a combination of multiple star schemas or snowflake schemas. It’s used when we need to model complex business requirements which include multiple fact tables.
 
+![image](https://github.com/XxDaShTixX/Software-Engineering-Essentials/assets/11358087/00e6a549-9863-45df-9898-b70429cf2208)
+Reference: [Link](https://www.educba.com/galaxy-schema/)
+
+#### Example
+A galaxy schema, also known as a fact constellation schema, is a complex type of schema used in data warehouses. It consists of multiple fact tables sharing dimension tables, arranged in a constellation. Here’s a simple example using a `Sales` and `Returns` scenario:
+```
+CREATE TABLE Sales (
+    SaleID INT PRIMARY KEY,
+    ProductID INT,
+    CustomerID INT,
+    Quantity INT,
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+CREATE TABLE Returns (
+    ReturnID INT PRIMARY KEY,
+    ProductID INT,
+    CustomerID INT,
+    Quantity INT,
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+CREATE TABLE Products (
+    ProductID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Category VARCHAR(50)
+);
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    City VARCHAR(50),
+    State VARCHAR(50)
+);
+```
+In this setup, `Sales` and `Returns` are the fact tables, and `Products` and `Customers` are dimension tables. The dimension tables are shared between the fact tables, forming a galaxy schema. You can query this schema with a simple join operation. For example, to get all sales and returns in a specific state:
+```
+SELECT 'Sale' AS Type, S.SaleID AS ID, P.Name AS Product, C.Name AS Customer, C.City, C.State
+FROM Sales S
+INNER JOIN Products P ON S.ProductID = P.ProductID
+INNER JOIN Customers C ON S.CustomerID = C.CustomerID
+WHERE C.State = @StateName  -- This is the name of the state you're interested in
+UNION ALL
+SELECT 'Return' AS Type, R.ReturnID AS ID, P.Name AS Product, C.Name AS Customer, C.City, C.State
+FROM Returns R
+INNER JOIN Products P ON R.ProductID = P.ProductID
+INNER JOIN Customers C ON R.CustomerID = C.CustomerID
+WHERE C.State = @StateName;  -- This is the name of the state you're interested in
+```
+This query will return all sales and returns, along with the type (`Sale` or `Return`), product name, customer name, city, and state, for all transactions in the state with the name ‘@StateName’. Please replace `@StateName` with the actual name of the state you’re interested in.
+
+### <ins>Flat Model</ins>
+A flat database model is the simplest type of database model. It consists of a single, two-dimensional array of data, where each individual record is represented as a row, and the attributes of that record are represented as columns. Here’s a simple example using a `Students` scenario:
+```
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Major VARCHAR(50),
+    City VARCHAR(50),
+    State VARCHAR(50)
+);
+```
+In this setup, `Students` is a flat table. Each row represents a student, and the columns represent attributes of the student (ID, Name, Major, City, State). You can query this table with a simple SELECT operation. For example, to get all students in a specific state:
+```
+SELECT * FROM Students WHERE State = @StateName;  -- This is the name of the state you're interested in
+```
 
 
 
 
-
-## <ins>Normalization</ins>
-Database normalization is the process of structuring a relational database in accordance with a series of so-called normal forms in order to reduce data redundancy and improve data integrity. It was first proposed by British computer scientist Edgar F. Codd as part of his relational model. Normalization entails organizing the columns (attributes) and tables (relations) of a database to ensure that their dependencies are properly enforced by database integrity constraints. It is accomplished by applying some formal rules either by a process of synthesis (creating a new database design) or decomposition (improving an existing database design).
 
 ## Normalization
 Indexes are data structures that can increase a database's efficiency in accessing tables. Indexes are not required; the database can function properly without them, but query response time can be slower. Every index is associated with a table and has a key, which is formed by one or more table columns. When a query needs to access a table that has an index, the database can decide to use the index to retrieve records faster3. Indexes are critical to query speed and efficiency3. They optimize data access and improve database performance by helping the database execute SQL queries faster.
