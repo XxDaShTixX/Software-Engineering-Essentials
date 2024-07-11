@@ -10,7 +10,7 @@
 - [Database Design](#database-design)
   - [Database Schema](#database-schema)
   - [Normalization](#normalization)
-  - [Indexes]
+  - [Indexes](#indexes)
 - [Data Processing]
   - [ETL (Extract, Transform, Load)]
 - [Data Storage and Retrieval]
@@ -629,3 +629,38 @@ This statement creates a new index with the name `index_name` on the `table_name
 ### <ins>Considerations</ins>
 While indexes can improve query performance, they also take up space on disk, and they can slow down data modification operations such as inserts, updates, and deletes. Additionally, too many indexes can negatively impact database performance, as the database engine must spend more time maintaining the indexes.
 
+
+
+
+
+# Data Processing
+Data processing in SQL refers to the steps a database system takes to execute a SQL query and return the results.
+
+## Data Processing Steps
+Data processing in SQL involves several steps:
+
+### <ins>Parsing</ins>
+This is the process of checking the syntax of the SQL query. It ensures that the SQL query is valid and can be executed.
+
+### <ins>Binding</ins>
+This step involves checking if all the database objects mentioned in the query exist.
+
+### <ins>Optimization</ins>
+In this step, the SQL server determines the most efficient way to execute the SQL query.
+
+### <ins>Evaluation</ins>
+The SQL query is executed and the results are returned.
+
+
+
+## ETL (Extract, Transform, Load)
+ETL is a systematic method for extracting data from various sources, transforming it into a suitable format, and loading it into a data warehouse456. Here’s a breakdown of the process:
+
+### <ins>Extract</ins>
+Data is collected from one or more sources. These sources can be anything, as long as it contains some sort of data.
+
+### <ins>Transform</ins>
+The extracted data is converted into a suitable format for analysis and reporting. This stage includes data cleaning, filtering, aggregation, and normalization.
+
+### <ins>Load</ins>
+The transformed data is moved into your preferred data repository, such as a data warehouse, data mart, or lake.
