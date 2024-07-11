@@ -18,5 +18,5 @@ Thank you for your interest and your contributions in making this a valuable res
 - [Databases](/Topics/Databases.md)
 - Operating Systems
 - Networking
-- Design Patterns
+- [Design Patterns](/Topics/Design-Patterns.md)
 - System Designs
