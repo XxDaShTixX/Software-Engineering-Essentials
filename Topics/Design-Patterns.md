@@ -270,3 +270,743 @@ public class Director
     }
 }
 ```
+
+## Prototype Pattern (Creational)
+### Purpose: 
+Specifies the kind of objects to create using a prototypical instance, and creates new objects by copying this prototype.
+### Real-world Example:
+A good example of the Prototype pattern is cloning cells in biology. When a cell divides, it essentially clones itself to create a new cell. In software, you might use the Prototype pattern when creating an object is expensive, and you want to avoid the cost of initialization. Instead, you could clone an existing (prototype) object.
+### Structure:
+```
+public abstract class Prototype
+{
+    public abstract Prototype Clone();
+}
+
+public class ConcretePrototype : Prototype
+{
+    public override Prototype Clone()
+    {
+        // Implement deep copy logic here
+        return (Prototype)this.MemberwiseClone();
+    }
+}
+```
+
+## Object Pool Pattern (Creational)
+### Purpose: 
+Reuse and share objects that are expensive to create. It manages a set of instances instead of creating and destroying them on demand.
+### Real-world Example:
+A common use case for the object pool pattern is in a game application where you need to spawn and destroy many similar objects (like bullets or enemies) frequently. Instead of creating a new object every time one is needed and destroying it after use (which can be costly in terms of memory and performance), you can use the Object Pool pattern to “recycle” these objects.
+### Structure:
+```
+public class ObjectPool<T> where T : new()
+{
+    private readonly List<T> _available = new List<T>();
+    private readonly List<T> _inUse = new List<T>();
+
+    public T Get()
+    {
+        lock(_available)
+        {
+            if (_available.Count != 0)
+            {
+                T obj = _available[0];
+                _inUse.Add(obj);
+                _available.RemoveAt(0);
+                return obj;
+            }
+            else
+            {
+                T obj = new T();
+                _inUse.Add(obj);
+                return obj;
+            }
+        }
+    }
+
+    public void Release(T obj)
+    {
+        lock(_available)
+        {
+            _available.Add(obj);
+            _inUse.Remove(obj);
+        }
+    }
+}
+```
+
+## Adapter Pattern (Structural)
+### Purpose: 
+Allows classes with incompatible interfaces to work together by wrapping its own interface around that of an already existing class.
+### Real-world Example:
+Consider a scenario where you have a memory card and a laptop that only accepts USB input. Here, a card reader acts as an adapter. You plug the memory card into the card reader, and the card reader into the laptop. The card reader adapts the interface of the memory card to the USB interface of the laptop.
+### Structure:
+```
+// Existing way requests are implemented
+class Adaptee
+{
+    public void SpecificRequest()
+    {
+        // ...
+    }
+}
+
+// New standard for requests
+interface ITarget
+{
+    void Request();
+}
+
+// Implementing the new standard in terms of the old
+class Adapter : ITarget
+{
+    private readonly Adaptee _adaptee;
+
+    public Adapter(Adaptee adaptee)
+    {
+        _adaptee = adaptee;
+    }
+
+    public void Request()
+    {
+        _adaptee.SpecificRequest();
+    }
+}
+```
+
+## Bridge Pattern (Structural)
+### Purpose: 
+Decouples an abstraction from its implementation so that the two can vary independently.
+### Real-world Example:
+Consider a device like a TV. The TV could be controlled by several different types of control mechanisms, e.g., a remote control, a joystick, or voice commands. Here, the TV is the abstraction, and the control mechanism is the implementation. Using the Bridge pattern, you can vary the TV independent of the control mechanism and vice versa.
+### Structure:
+```
+// Implementor
+public interface IImplementation
+{
+    void OperationImpl();
+}
+
+// Concrete Implementors
+public class ConcreteImplementationA : IImplementation
+{
+    public void OperationImpl()
+    {
+        // Implementation A
+    }
+}
+
+public class ConcreteImplementationB : IImplementation
+{
+    public void OperationImpl()
+    {
+        // Implementation B
+    }
+}
+
+// Abstraction
+public abstract class Abstraction
+{
+    protected IImplementation implementation;
+
+    public Abstraction(IImplementation implementation)
+    {
+        this.implementation = implementation;
+    }
+
+    public virtual void Operation()
+    {
+        implementation.OperationImpl();
+    }
+}
+
+// Refined Abstraction
+public class RefinedAbstraction : Abstraction
+{
+    public RefinedAbstraction(IImplementation implementation) : base(implementation)
+    {
+    }
+
+    public override void Operation()
+    {
+        // Additional behavior
+        base.Operation();
+    }
+}
+```
+
+## Composite Pattern (Structural)
+### Purpose: 
+Composes objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
+### Real-world Example:
+Consider a file system, which comprises directories (folders) and files. A directory can contain other directories as well as files, but a file cannot contain anything. Here, ‘Directory’ is the composite class, ‘File’ is the leaf class, and they both inherit from a common interface ‘FileSystemEntity’.
+### Structure:
+```
+// Component
+public abstract class Component
+{
+    public abstract void Operation();
+}
+
+// Leaf
+public class Leaf : Component
+{
+    public override void Operation()
+    {
+        // Leaf operation
+    }
+}
+
+// Composite
+public class Composite : Component
+{
+    private List<Component> _children = new List<Component>();
+
+    public override void Operation()
+    {
+        foreach (var child in _children)
+        {
+            child.Operation();
+        }
+    }
+
+    public void Add(Component component)
+    {
+        _children.Add(component);
+    }
+
+    public void Remove(Component component)
+    {
+        _children.Remove(component);
+    }
+}
+```
+
+## Decorator Pattern (Structural)
+### Purpose: 
+Dynamically adds/overrides behaviour in an existing method of an object. It provides a flexible alternative to subclassing for extending functionality.
+### Real-world Example:
+Consider a window in a graphical user interface. You can decorate a window with additional behaviors like scrollable, resizable, etc., without changing the window’s code. Each decorator adds some decoration, like a scrollbar or a resize grip, without modifying the underlying object being decorated.
+### Structure:
+```
+// Component
+public abstract class Component
+{
+    public abstract void Operation();
+}
+
+// Concrete Component
+public class ConcreteComponent : Component
+{
+    public override void Operation()
+    {
+        // Original operation
+    }
+}
+
+// Decorator
+public abstract class Decorator : Component
+{
+    protected Component component;
+
+    public Decorator(Component component)
+    {
+        this.component = component;
+    }
+
+    public override void Operation()
+    {
+        component.Operation();
+    }
+}
+
+// Concrete Decorators
+public class ConcreteDecoratorA : Decorator
+{
+    public ConcreteDecoratorA(Component component) : base(component)
+    {
+    }
+
+    public override void Operation()
+    {
+        // Additional behavior A
+        base.Operation();
+    }
+}
+
+public class ConcreteDecoratorB : Decorator
+{
+    public ConcreteDecoratorB(Component component) : base(component)
+    {
+    }
+
+    public override void Operation()
+    {
+        // Additional behavior B
+        base.Operation();
+    }
+}
+```
+
+## Facade Pattern (Structural)
+### Purpose: 
+Provides a simplified interface to a larger body of code, such as a class library.
+### Real-world Example:
+Consider a computer system. Turning on a computer involves initializing the processor, testing memory, loading system files, etc. To make it easy for the user, a “Start” button is provided, which serves as a facade, simplifying a complex process behind a simple interface.
+### Structure:
+```
+// Complex subsystem classes
+public class SubsystemClassA
+{
+    public void OperationA() { /* ... */ }
+}
+
+public class SubsystemClassB
+{
+    public void OperationB() { /* ... */ }
+}
+
+// Facade
+public class Facade
+{
+    private SubsystemClassA _a = new SubsystemClassA();
+    private SubsystemClassB _b = new SubsystemClassB();
+
+    public void Operation()
+    {
+        _a.OperationA();
+        _b.OperationB();
+        // ...
+    }
+}
+```
+
+## Flyweight Pattern (Structural)
+### Purpose: 
+Provides a simplified interface to a larger body of code, such as a class library.
+### Real-world Example:
+A common use case for the Flyweight pattern is in a game application where you need to spawn and destroy many similar objects (like bullets or enemies) frequently. Instead of creating a new object every time one is needed and destroying it after use (which can be costly in terms of memory and performance), you can use the Flyweight pattern to share the common parts of the object state among multiple objects.
+### Structure:
+```
+public interface IFlyweight
+{
+    void Operation(string extrinsicState);
+}
+
+public class ConcreteFlyweight : IFlyweight
+{
+    private string _intrinsicState;
+
+    public ConcreteFlyweight(string intrinsicState)
+    {
+        _intrinsicState = intrinsicState;
+    }
+
+    public void Operation(string extrinsicState)
+    {
+        // Use _intrinsicState and extrinsicState
+    }
+}
+
+public class FlyweightFactory
+{
+    private Dictionary<string, IFlyweight> _flyweights = new Dictionary<string, IFlyweight>();
+
+    public IFlyweight GetFlyweight(string intrinsicState)
+    {
+        if (!_flyweights.ContainsKey(intrinsicState))
+        {
+            _flyweights[intrinsicState] = new ConcreteFlyweight(intrinsicState);
+        }
+
+        return _flyweights[intrinsicState];
+    }
+}
+```
+
+## Proxy Pattern (Structural)
+### Purpose: 
+Provides a surrogate or placeholder for another object to control access to it.
+### Real-world Example:
+A common example of the Proxy pattern is a credit card, which acts as a proxy for a bank account. The credit card defers payments to the bank account and provides controlled access to the bank account’s funds.
+### Structure:
+```
+public interface ISubject
+{
+    void Request();
+}
+
+public class RealSubject : ISubject
+{
+    public void Request()
+    {
+        // Real implementation
+    }
+}
+
+public class Proxy : ISubject
+{
+    private RealSubject _realSubject;
+
+    public void Request()
+    {
+        if (_realSubject == null)
+        {
+            _realSubject = new RealSubject();
+        }
+
+        // Control access to the real subject
+        _realSubject.Request();
+    }
+}
+```
+
+## Observer Pattern (Behavioral)
+### Purpose: 
+Defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+### Real-world Example:
+A news agency. When the agency publishes a new story, all registered outlets (observers) are notified and publish the story.
+### Structure:
+```
+public interface IObserver
+{
+    void Update();
+}
+
+public interface ISubject
+{
+    void Attach(IObserver observer);
+    void Detach(IObserver observer);
+    void Notify();
+}
+
+public class ConcreteSubject : ISubject
+{
+    private List<IObserver> _observers = new List<IObserver>();
+
+    public void Attach(IObserver observer)
+    {
+        _observers.Add(observer);
+    }
+
+    public void Detach(IObserver observer)
+    {
+        _observers.Remove(observer);
+    }
+
+    public void Notify()
+    {
+        foreach (var observer in _observers)
+        {
+            observer.Update();
+        }
+    }
+}
+
+public class ConcreteObserver : IObserver
+{
+    public void Update()
+    {
+        // ...
+    }
+}
+```
+
+## State Pattern (Behavioral)
+### Purpose: 
+Allows an object to alter its behavior when its internal state changes. The object will appear to change its class.
+### Real-world Example:
+Consider a traffic light system. The light changes state from green to yellow, yellow to red, and then red to green. Here, each color represents a different state and has different behaviors associated with it.
+### Structure:
+```
+public interface IState
+{
+    void Handle(Context context);
+}
+
+public class ConcreteStateA : IState
+{
+    public void Handle(Context context)
+    {
+        // Handle request and set the next state
+        context.State = new ConcreteStateB();
+    }
+}
+
+public class ConcreteStateB : IState
+{
+    public void Handle(Context context)
+    {
+        // Handle request and set the next state
+        context.State = new ConcreteStateA();
+    }
+}
+
+public class Context
+{
+    public IState State { get; set; }
+
+    public Context(IState state)
+    {
+        this.State = state;
+    }
+
+    public void Request()
+    {
+        this.State.Handle(this);
+    }
+}
+```
+
+## Strategy Pattern (Behavioral)
+### Purpose: 
+Defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
+### Real-world Example:
+Consider a map application that provides several methods (or strategies) to go from point A to point B (like fastest route, shortest route, or least busy route). Here, each method represents a different strategy.
+### Structure:
+```
+public interface IStrategy
+{
+    void AlgorithmInterface();
+}
+
+public class ConcreteStrategyA : IStrategy
+{
+    public void AlgorithmInterface()
+    {
+        // Implement algorithm A
+    }
+}
+
+public class ConcreteStrategyB : IStrategy
+{
+    public void AlgorithmInterface()
+    {
+        // Implement algorithm B
+    }
+}
+
+public class Context
+{
+    private IStrategy _strategy;
+
+    public Context(IStrategy strategy)
+    {
+        this._strategy = strategy;
+    }
+
+    public void ContextInterface()
+    {
+        _strategy.AlgorithmInterface();
+    }
+}
+```
+
+## Template Method Pattern (Behavioral)
+### Purpose: 
+Defines the skeleton of an algorithm in a method, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm’s structure.
+### Real-world Example:
+Consider a software development process. The steps (requirements, design, implementation, testing) are the same and occur in the same order for every kind of project. However, the details of each step can vary based on the type of project (web project, mobile project, cloud project). Here, each type of project can be a subclass that implements the steps according to its requirements.
+### Structure:
+```
+public abstract class AbstractClass
+{
+    public void TemplateMethod()
+    {
+        PrimitiveOperation1();
+        PrimitiveOperation2();
+        // ...
+    }
+
+    public abstract void PrimitiveOperation1();
+
+    public abstract void PrimitiveOperation2();
+}
+
+public class ConcreteClass : AbstractClass
+{
+    public override void PrimitiveOperation1()
+    {
+        // Implement operation 1
+    }
+
+    public override void PrimitiveOperation2()
+    {
+        // Implement operation 2
+    }
+}
+```
+
+## Visitor Pattern (Behavioral)
+### Purpose: 
+Represents an operation to be performed on the elements of an object structure without changing the classes on which it operates.
+### Real-world Example:
+Consider a tax calculation system. The system can calculate different types of taxes (like income tax, sales tax, etc.) for different types of people (like an employee, a business owner, etc.). Here, each type of tax calculation is a visitor, and each type of person is an element.
+### Structure:
+```
+public interface IElement
+{
+    void Accept(IVisitor visitor);
+}
+
+public class ConcreteElementA : IElement
+{
+    public void Accept(IVisitor visitor)
+    {
+        visitor.VisitConcreteElementA(this);
+    }
+}
+
+public class ConcreteElementB : IElement
+{
+    public void Accept(IVisitor visitor)
+    {
+        visitor.VisitConcreteElementB(this);
+    }
+}
+
+public interface IVisitor
+{
+    void VisitConcreteElementA(ConcreteElementA concreteElementA);
+    void VisitConcreteElementB(ConcreteElementB concreteElementB);
+}
+
+public class ConcreteVisitor1 : IVisitor
+{
+    public void VisitConcreteElementA(ConcreteElementA concreteElementA)
+    {
+        // Visitor 1's implementation for ConcreteElementA
+    }
+
+    public void VisitConcreteElementB(ConcreteElementB concreteElementB)
+    {
+        // Visitor 1's implementation for ConcreteElementB
+    }
+}
+
+public class ConcreteVisitor2 : IVisitor
+{
+    public void VisitConcreteElementA(ConcreteElementA concreteElementA)
+    {
+        // Visitor 2's implementation for ConcreteElementA
+    }
+
+    public void VisitConcreteElementB(ConcreteElementB concreteElementB)
+    {
+        // Visitor 2's implementation for ConcreteElementB
+    }
+}
+```
+
+## Command Pattern (Behavioral)
+### Purpose: 
+Encapsulates a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
+### Real-world Example:
+Consider a remote control for an electronic device (like a TV or Radio). Each button on the remote is a command that encapsulates a request (like turning the power on/off, changing the channel, adjusting the volume). The remote control, the invoker, can execute these commands without knowing the specifics of the device’s operations.
+### Structure:
+```
+public interface ICommand
+{
+    void Execute();
+}
+
+public class ConcreteCommand : ICommand
+{
+    private Receiver _receiver;
+
+    public ConcreteCommand(Receiver receiver)
+    {
+        _receiver = receiver;
+    }
+
+    public void Execute()
+    {
+        _receiver.Action();
+    }
+}
+
+public class Invoker
+{
+    private ICommand _command;
+
+    public Invoker(ICommand command)
+    {
+        _command = command;
+    }
+
+    public void Invoke()
+    {
+        _command.Execute();
+    }
+}
+
+public class Receiver
+{
+    public void Action()
+    {
+        // Perform some action
+    }
+}
+```
+
+## Iterator Pattern (Behavioral)
+### Purpose: 
+The Iterator Pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation. It encapsulates the internal structure of how the items are organized and allows clients to traverse the elements without knowing the underlying details.
+### Real-world Example:
+A real-world example of the Iterator pattern is a radio station tuner. You can think of each station as an element in a collection. The tuner acts as an iterator that lets you go through the stations one by one without knowing how they are ordered in the frequency spectrum.
+### Structure:
+```
+public interface IIterator
+{
+    bool HasNext();
+    object Next();
+}
+
+public interface IAggregate
+{
+    IIterator GetIterator();
+}
+
+public class ConcreteAggregate : IAggregate
+{
+    private List<object> _items = new List<object>();
+
+    public IIterator GetIterator()
+    {
+        return new ConcreteIterator(this);
+    }
+
+    public int Count
+    {
+        get { return _items.Count; }
+    }
+
+    public object this[int index]
+    {
+        get { return _items[index]; }
+        set { _items.Insert(index, value); }
+    }
+}
+
+public class ConcreteIterator : IIterator
+{
+    private ConcreteAggregate _aggregate;
+    private int _current = 0;
+
+    public ConcreteIterator(ConcreteAggregate aggregate)
+    {
+        this._aggregate = aggregate;
+    }
+
+    public bool HasNext()
+    {
+        return _current < _aggregate.Count;
+    }
+
+    public object Next()
+    {
+        return _aggregate[_current++];
+    }
+}
+```
