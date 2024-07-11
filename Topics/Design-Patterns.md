@@ -1,9 +1,20 @@
 # Table of Content
-- [Database Management Systems (DBMS)](#database-management-systems-dbms)
-  - [Database Management Systems (DBMS)](#database-management-systems-dbms-1)
-  - [Relational Databases](#relational-databases)
-  - [SQL (Structured Query Language)](#sql-structured-query-language)
-  - [NoSQL Databases](#nosql-databases)
+- [Design Patterns](#design-patterns)
+  - [Definition](#definition)
+  - [Importance](#importance)
+  - [Characteristics](#characteristics)
+- [Types of Design Patterns](#types-of-design-patterns)
+  - [Creational Design Patterns](#creational-design-patterns)
+  - [Structural Design Patterns](#structural-design-patterns)
+  - [Behavioral Design Patterns](#behavioral-design-patterns)
+- [Deep Dive into Each Design Pattern](#deep-dive-into-each-design-pattern)
+  - [Singleton Pattern (Creational)](#singleton-pattern-creational)
+  - [Factory Pattern (Creational)](#factory-pattern-creational)
+  - [Abstract Factory Pattern (Creational)](#abstract-factory-pattern-creational)
+  - [Builder Pattern (Creational)](#builder-pattern-creational)
+  - [Prototype Pattern (Creational)](#prototype-pattern-creational)
+  - [Object Pool Pattern (Creational)](#object-pool-pattern-creational)
+  - [Adapter Pool Pattern (Structural)](#adapter-pattern-structural)
 
 
  
@@ -22,7 +33,7 @@ Explains why we use design patterns and how they benefit the development process
 - <ins>**Code Reusability and Maintainability**</ins>: They make the code more organized, reusable, and easy to maintain.
 - <ins>**Best Practices**</ins>: They encapsulate the experience of software professionals into a standard solution. Remember, the key is to use them where appropriate. Misuse can lead to unnecessarily complicated designs.
 
-## Key Characteristics
+## Characteristics
 Describe the inherent properties or features of design patterns. They define what design patterns are, such as their:
 - <ins>**Standardization**</ins>: Design patterns provide solutions that can be reused across different projects, reducing redundancy in code.
 - <ins>**Communication**</ins>: They offer a standard terminology and are universally recognized by developers, improving communication and understanding.
@@ -53,7 +64,7 @@ Creational design patterns are concerned with the way of creating objects. They 
 
 
 
-## Creational Design Patterns
+## Structural Design Patterns
 
 ### Purpose:
 Structural design patterns are about organizing different classes and objects to form larger structures and provide new functionality.
