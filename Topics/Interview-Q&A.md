@@ -173,6 +173,25 @@ Big Data refers to extremely large data sets that may be analysed computationall
 
 
 
+### **Q: What is the difference between LocalStorage, SessionStorage and Cookie?**
+1. **LocalStorage:**
+   - It's a web storage object that stores data with no expiration date. The data will not be deleted when the browser is closed and is available across browser sessions.
+   - It allows for larger amounts of data to be stored (up to 10MB).
+   - It provides methods like `setItem()`, `getItem()`, `removeItem()`, and `clear()` to manage the stored data.
+
+2. **SessionStorage:**
+   - It's similar to LocalStorage but the data is only available for the duration of the page session. The data gets cleared when the page session ends, i.e., when the browser or tab is closed.
+   - It's suitable for storing temporary data during a user's session.
+
+3. **Cookies:**
+   - Cookies are small text files stored by the browser that are sent to the server with every request.
+   - They are useful for small amounts of data and have options for expiration and domain restrictions.
+   - They are supported by older browsers and are often used as a fallback for frameworks that use LocalStorage or SessionStorage.
+
+In summary, LocalStorage, SessionStorage, and Cookies are all client-side storage solutions, each with their own use cases and limitations. LocalStorage is ideal for persistent data, SessionStorage for session-specific data, and Cookies for small amounts of data that need to be sent back to the server.
+
+
+
 
 
 
