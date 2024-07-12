@@ -1,1 +1,259 @@
+# Table of Content
+- [Introduction](#introduction)
+- [Technical Questions](#technical-questions)
+- [Behavioral Questions](#behavioral-questions)
+- [References](#references)
 
+## Introduction
+I have compiled a list of questions that either I personally have gone through or have found online as I was preparing for interviews. These questions may or may not be applicable to you based on the stack you are focused on.
+
+## Technical Questions
+
+### **Q: What is the difference between responsive and adaptive design?**
+- **Responsive design** is a technique where a website’s layout adjusts to any screen size, ensuring the website functions well on any device. It uses fluid grids to resize and rearrange the layout based on percentage values.
+- **Adaptive design**, on the other hand, involves creating multiple layouts, each optimized for a specific screen size or device type. The website detects the user’s device and displays the corresponding layout. This approach requires fixed layout sizes for specific screen dimensions, necessitating developers to create multiple layouts for predefined screen sizes or device capabilities.
+
+
+
+### **Q: What do we mean by data attributes?**
+A data attribute is a data field that defines the characteristics or features of a data object. It mostly exists in a table format but can also refer to special values for objects in programming languages. In a word, data attributes are simply data that describe other data.
+
+
+
+### **Q: What is the difference between a static and dynamic website?**
+- **Static websites** are built with HTML, CSS, and JavaScript. Their content remains the same for every access, and the server sends HTML files directly to the user’s browser. Examples include personal blogs and small business websites.
+- **Dynamic websites** are built using server-side programming languages like Python, Java, PHP, Ruby, etc., and often use databases. When a user requests a page, the server runs code to generate the content, allowing for dynamic content display. Examples include social media platforms and content management systems.
+
+
+
+### **Q: How do you ensure code quality and maintainability in your projects?**
+- Use consistent **coding standards** and **style guides** across the project.
+- Enforce strict linting and **code formatting** using tools like ESLint or Prettier.
+- Implement **unit testing** and **integration testing** with **automated testing frameworks**.
+- Use **code review** processes to identify and fix issues.
+- Utilize **Continuous Integration and Continuous Deployment (CI/CD)** pipelines to maintain quality throughout the development lifecycle.
+- Follow **best practices**, like **SOLID principles** and **design patterns**, for better code organization and reusability.
+
+
+
+### **Q: What are the SOLID principals?**
+- **[S] - Single-responsibility Principle**: A class should have one and only one reason to change, meaning that a class should have only one job.
+- **[O] - Open-closed Principle**: Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+- **[L] - Liskov Substitution Principle**: Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.
+- **[I] - Interface Segregation Principle**: Clients should not be forced to depend on interfaces they do not use.
+- **[D] - Dependency Inversion Principle**: High-level modules should not depend on low-level modules. Both should depend on abstractions.
+
+
+
+### **Q: What are the pillars of Object Oriented Programming (OOP)?**
+- **Encapsulation**: This principle is about bundling the data, and the methods that operate on this data, into a single unit called a class. This mechanism helps to hide the internal state of an object and protect it from unauthorized access.
+- **Abstraction**: Abstraction is about hiding the complexity and only showing the essential features of the object. So in a way, Abstraction means hiding the real implementation and we, as users, knowing only how to use it.
+- **Inheritance**: Inheritance is a mechanism in which one object acquires all the properties and behaviors of a parent object. It's an important part of OOPs as it promotes the concept of reusability and is a way to achieve the desired functionality.
+- **Polymorphism**: Polymorphism allows methods to do different things based on the object that it is acting upon. This is important for separating and organizing code to make it more flexible and maintainable.
+
+
+
+### **Q: Why is RESTful API a popular choice in web development?**
+RESTful API is a web development approach that offers several benefits, including being Stateless, Scalable, Performant, and Cacheable.
+
+- **Stateless**: RESTful API is designed to be stateless. This means each request from the client to the server contains all the necessary information for the server to process it. The server doesn't need to maintain client state between requests, simplifying the server's architecture and enhancing scalability.
+
+- **Scalable and Performant**: The stateless nature of RESTful API allows for better load balancing and horizontal scaling. Servers can distribute the workload more easily without coordinating client states, leading to improved performance.
+
+These features make RESTful API a popular choice for enhancing the efficiency and maintainability of web services.
+
+
+
+### **Q: Explain the MVC design pattern?**
+The Model-View-Controller (MVC) is a design pattern used in software development, particularly in web development. It simplifies complex software development by dividing it into three components:
+
+- **Model**: Represents the application's data and business logic. It manages data, performs calculations, and responds to the controller's requests.
+
+- **View**: Handles the user interface of the application. It displays the model's data to the users and provides a platform for interaction.
+
+- **Controller**: Manages both the Model and View. It handles the application's flow, including data flow within the Model and updates the View whenever data changes.
+
+
+
+### **Q: Talk about mock vs. stub.**
+Mocks and stubs are two common methods used for unit testing. You can choose one or both, depending on the testing goals. Here is a comparison of mock vs. stub.
+![image](https://github.com/XxDaShTixX/Software-Engineering-Essentials/assets/11358087/1bef9819-e570-41eb-a1e9-ed8dd85a3926)
+
+
+
+### **Q: How do you ensure data security in your applications?**
+Data security is crucial for protecting sensitive information, maintaining trust, complying with regulations, and preventing financial losses. Here are some measures to ensure data security in application development:
+- **Secure Coding Practices**: Use secure coding practices like input validation, access controls, and error handling.
+- **Data Encryption**: Protect data during transmission and storage in databases using encryption. This can help prevent data breaches and unauthorized access.
+- **Strong Authentication**: Implement robust authentication techniques to ensure only authorized users can access sensitive data.
+- **Regular Security Testing**: Conduct regular security testing, such as vulnerability assessments and penetration testing, to identify and address potential security risks before they can be exploited.
+- **Follow Industry Best Practices**: Adhere to industry best practices and regulatory guidelines to ensure your applications are secure, efficient, and sustainable.
+
+
+
+### **Q: What is the difference between unit testing and integration testing?**
+- **Unit Testing**: This is a method where individual components or modules of software are tested during the development stage. The goal is to identify and fix errors in the smallest unit of code early in the development process.
+- **Integration Testing**: This involves testing multiple units or components together. The purpose is to verify if the individual components function correctly when combined.
+
+
+
+### **Q: Can you explain the concept of microservices architecture?**
+- Microservices architecture is a design pattern where an application is built as a collection of small, loosely coupled, and independently deployable services. Each service focuses on a specific business capability and can be developed, tested, and deployed independently. This approach enhances scalability and resilience, and enables faster development cycles. 
+- However, it also introduces complexity in areas like coordination, service communication, and data synchronization among microservices.
+
+
+
+### **Q: What is the box model in CSS?**
+The CSS box model is a key concept that defines how elements are rendered on a webpage. It consists of four main components:
+- **Content**: The area holding the actual content, like text or images.
+- **Padding**: The space between the content and the border.
+- **Border**: The line that goes around the padding and content.
+- **Margin**: The space between the border and the outside of the element.
+Each of these components contributes to the total size of the element, which is crucial to consider during webpage design and layout.
+
+
+
+### **Q: Distinguish between Hashtable and HashMap.**
+![image](https://github.com/XxDaShTixX/Software-Engineering-Essentials/assets/11358087/6315e9cf-22e5-44c6-9dbc-800eb3f3cc03)
+
+
+
+### **Q: What is V8?**
+V8 is an open-source JavaScript engine developed by Google, written in C++. It implements JavaScript according to the ECMAScript specification and provides a runtime for executing JavaScript code. It's used in applications like Google Chrome and Node.js.  
+
+A key feature of V8 is its independence from the browser it runs in. This allowed Node.js developers to use V8 to execute server-side JavaScript, contributing to Node.js's popularity.
+
+
+### **Q: What is jQuery, and what are its features?**
+jQuery is a fast and lightweight JavaScript library designed to simplify web development by reducing the amount of code needed. It offers several key features:
+- **HTML/DOM Manipulation**: Allows easy manipulation of HTML documents and the Document Object Model (DOM).
+- **Cross-Browser Compatibility**: Ensures consistent behavior across different web browsers.
+- **CSS Manipulation**: Provides methods for changing CSS properties of elements.
+- **HTML Event Methods**: Facilitates handling of user interactions through HTML events.
+- **Effects and Animations**: Supports various effects and animations to enhance user experience.
+- **AJAX Support**: Enables asynchronous web applications with AJAX.
+- **Plugins**: Allows extension of jQuery's functionality with plugins.
+
+
+
+### **Q: What is namespace in C#?**
+A **namespace** is a keyword used to declare a scope that contains a set of related classes and types. It helps organize code into logical groups and provides unique class names. This allows the same class name to be used in different namespaces without conflict.
+
+
+
+### **Q: What is hoisting in JavaScript?**
+**Hoisting** is a feature in JavaScript that automatically moves variable, function, and class declarations to the top of their containing scope during the code parsing phase, before the code has been executed. This means you can use variables or functions before they are declared in the code.  
+
+However, it's important to note that hoisting only applies to the declarations, not the initializations. If a variable is declared and initialized after using it, the variable will be undefined until it is initialized. This is because only the declaration is hoisted, not the initialization.
+
+
+
+### **Q: What is hoisting in JavaScript?**
+**Hoisting** is a feature in JavaScript that automatically moves variable, function, and class declarations to the top of their containing scope during the code parsing phase, before the code has been executed. This means you can use variables or functions before they are declared in the code.  
+
+
+
+### **Q: What is backtracking, and why do we use it?**
+**Backtracking** is an algorithmic strategy that uses recursive calls to find solutions by incrementally building candidates and abandoning a candidate ("backtracks") as soon as it determines that the candidate cannot possibly be extended to a valid solution.
+
+It's considered an improvement over the brute force approach as it eliminates many unnecessary paths in the search tree, thus providing an efficient way to solve problems.
+
+Backtracking can be applied to a variety of problem types:
+- **Decision Problems**: Backtracking can be used to find a feasible solution. It explores possibilities until it finds one that satisfies all constraints.
+- **Optimization Problems**: Backtracking can be used to find the best solution. It systematically searches the entire solution space for the optimal solution.
+- **Enumeration Problems**: Backtracking can be used to find all feasible solutions. It generates all configurations and tests each one to see if it satisfies all constraints.
+
+
+
+### **Q: What is a JavaScript Promise, and what are its different states?**
+A **JavaScript Promise** is an object that signifies the eventual completion or failure of an asynchronous operation. It simplifies the management of multiple async operations and provides better error handling than callbacks or events. A Promise object can exist in one of three states:
+
+- **Pending**: This is the initial state. The Promise is neither fulfilled nor rejected.
+- **Fulfilled**: This means the operation has completed successfully.
+- **Rejected**: This indicates that the operation has failed.
+
+Promises are a powerful tool in JavaScript for managing asynchronous operations, making code easier to read and reason about.
+
+
+
+### **Q: What is the difference between MVC (Model View Controller) and MVP (Model View Presenter)?**
+The **MVC** (Model-View-Controller) and **MVP** (Model-View-Presenter) patterns are both architectural design patterns that help in organizing code in a structured manner:
+
+- **MVC Pattern**: In MVC, the code is divided into three components: Model, View, and Controller. The Controller acts as an intermediary between the Model (which represents the data and business logic) and the View (which displays the data to the user). However, the support for unit testing is somewhat limited in the MVC pattern.
+
+- **MVP Pattern**: MVP is an advanced iteration of software architecture, also composed of three components: Model, View, and Presenter. Unlike MVC, an interface in MVP communicates between the View-Presenter and Presenter-Model, making the View and Model completely independent. This separation makes unit testing highly supported in the MVP pattern, as each component can be tested independently.
+
+
+
+### **Q: What do we mean by MEAN Stack?**
+**MEAN** is a tech stack that stands for:
+
+- **MongoDB**: A popular NoSQL database that stores data in a flexible, JSON-like format.
+- **Express.js**: A back-end web application framework running on top of Node.js.
+- **Angular.js**: A front-end web application framework developed by Google.
+- **Node.js**: A JavaScript runtime built on Chrome's V8 JavaScript engine that allows running JavaScript on the server side.
+
+MEAN is a JavaScript-based stack used for developing cloud-ready applications. It provides a complete solution for building both the front-end and back-end of dynamic websites and applications using a single technology stack. This stack has gained popularity due to its user-friendly nature and open-source availability, which allows for community-driven improvements and updates.
+
+
+
+### **Q: How do you handle browser compatibility issues?**
+Browsers like Google Chrome, Mozilla Firefox, Safari, Microsoft Edge, etc., interpret web code differently. This can cause a web page or application to look and function differently across browsers. Here are some tips to handle browser compatibility issues:
+
+- **Use a CSS Reset**: Different browsers have different default styles, which can cause layout inconsistencies. A CSS reset can help by setting a common baseline for all browsers.
+- **Use Cross-Browser Frameworks and Libraries**: Frameworks and libraries like jQuery, React, or Angular can help developers avoid browser-specific code and provide a consistent interface across different browsers.
+- **Test on Multiple Browsers and Devices**: Developers should test their websites or applications on multiple browsers, including popular ones like Chrome, Firefox, Safari, and Edge, to ensure compatibility.
+
+- **Use Polyfills and Shims**: Polyfills and shims are code snippets that provide fallback functionality for web features not supported by some browsers. Libraries like Modernizr, Polyfill.io, or HTML5 Shiv can help fill in gaps in browser support.
+
+
+
+### **Q: What is the difference between abstract and interface?**
+Here's a summarized comparison of abstract classes and interfaces in C#:
+
+- **Methods**: Abstract classes in C# can have both abstract and non-abstract methods (virtual or concrete), while interfaces can only have method signatures.
+- **Variables**: Variables in an abstract class can be non-static and non-readonly, but those in an interface are always static and readonly in nature.
+- **Implementation**: An abstract class can provide an implementation of an interface, but an interface can't implement an abstract class.
+- **Members**: A C# abstract class can have public, private, and protected members, whereas an interface only has public members.
+- **Inheritance**: An abstract class is extended using the ":" keyword, while an interface is implemented using the ":" keyword.
+
+In essence, while both abstract classes and interfaces are used to create reusable and modular code in C#, they have different rules and use-cases.
+
+
+
+### **Q: What are the main differences between process and thread?**
+![image](https://github.com/XxDaShTixX/Software-Engineering-Essentials/assets/11358087/d9652012-c238-4be7-9367-99801af9e870)
+
+
+
+### **Q: How do you share code between files in JavaScript?**
+In JavaScript, code can be shared between files using 'imports' and 'exports'. This allows for modular programming, where code is split into smaller, reusable modules. Here's how it works:
+
+- **ES5 Syntax**: In ES5, we use the `require` statement to import functions, objects or values from another file, and the `module.exports` statement to export them. Here's an example:
+
+```
+// File: module.js
+export const name = 'JavaScript Module';
+
+// File: main.js
+import { name } from './module.js';
+console.log(name);  // Outputs: 'JavaScript Module'
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## References
+- https://www.turing.com/interview-questions/senior-full-stack
