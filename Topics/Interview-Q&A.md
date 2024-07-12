@@ -1,15 +1,19 @@
 # Table of Content
 - [Introduction](#introduction)
-- [Technical Questions](#technical-questions)
+- [Software Engineering Basics](#software-engineering-basics)
+- [Front-End Questions](#front-end-technical-questions)
+- [Back-End Questions](#back-end-technicalquestions)
 - [Behavioral Questions](#behavioral-questions)
 - [References](#references)
 
 ## Introduction
 I have compiled a list of questions that either I personally have gone through or have found online as I was preparing for interviews. These questions may or may not be applicable to you based on the stack you are focused on.
 
-## Technical Questions
 
 
+
+
+## Software Engineering Concepts
 
 ### **Q: Can you explain what is Object-Oriented Programming (OOP)?**
 Object-Oriented Programming (OOP) is a programming paradigm that uses “objects” - data structures consisting of data fields and methods together with their interactions - to design applications and computer programs.
@@ -26,6 +30,26 @@ Object-Oriented Programming (OOP) is a programming paradigm that uses “objects
 
 ### **Q: What is the difference between a class and an object?**
 A class is a blueprint or template from which objects are created. An object is an instance of a class.
+
+
+
+### **Q: What is a compiler?**
+A compiler is a special program that processes statements written in a particular programming language and turns them into machine language or "code" that a computer's processor uses.
+
+
+
+### **Q: What is a software library?**
+A library in software is a collection of resources used to develop software, these may include pre-written code and subroutines, classes, values or type specifications.
+
+
+
+### **Q: What is namespace in C#?**
+A **namespace** is a keyword used to declare a scope that contains a set of related classes and types. It helps organize code into logical groups and provides unique class names. This allows the same class name to be used in different namespaces without conflict.
+
+
+
+### **Q: What is a Data Type in programming?**
+A data type in programming is an attribute of data which tells the compiler or interpreter how the programmer intends to use the data.
 
 
 
@@ -49,16 +73,29 @@ Stack is a LIFO (Last in First out) structure and Queue is a FIFO (First in Firs
 
 
 
+### **Q: What is the difference between abstract and interface?**
+Here's a summarized comparison of abstract classes and interfaces in C#:
+
+- **Methods**: Abstract classes in C# can have both abstract and non-abstract methods (virtual or concrete), while interfaces can only have method signatures.
+- **Variables**: Variables in an abstract class can be non-static and non-readonly, but those in an interface are always static and readonly in nature.
+- **Implementation**: An abstract class can provide an implementation of an interface, but an interface can't implement an abstract class.
+- **Members**: A C# abstract class can have public, private, and protected members, whereas an interface only has public members.
+- **Inheritance**: An abstract class is extended using the ":" keyword, while an interface is implemented using the ":" keyword.
+
+In essence, while both abstract classes and interfaces are used to create reusable and modular code in C#, they have different rules and use-cases.
+
+
+
 ### **Q: What is an algorithm?**
 An algorithm is a step-by-step procedure, which defines a set of instructions to be executed in a certain order to get the desired output.
 
 
-### **Q: What is the time complexity of an algorithm?**
+### **Q: What is the `time complexity` of an algorithm?**
 Time complexity of an algorithm quantifies the amount of time taken by an algorithm to run, as a function of the length of the input.
 
 
 
-### **Q: What is the space complexity of an algorithm?**
+### **Q: What is the `space complexity` of an algorithm?**
 Space complexity of an algorithm quantifies the amount of space or memory taken by an algorithm to run, as a function of the length of the input.
 
 
@@ -94,6 +131,11 @@ Reference: https://hygger.io/guides/agile/
 Scrum is a specific framework for implementing Agile. It structures work into short, iterative cycles known as sprints1. Scrum teams commit to shipping work at the end of each sprint and adopt practices and a team structure that helps them achieve this cadence.
 ![image](https://github.com/user-attachments/assets/8d429009-c218-4b2b-bdd2-17590886a21e)
 Reference: https://www.scnsoft.com/software-development/software-development-models
+
+
+
+### **Q: What is an API (Application Programming Interface)?**
+An API is a set of rules that allow programs to talk to each other. The developer creates the API on the server and allows the client to talk to it.
 
 
 
@@ -173,47 +215,8 @@ Big Data refers to extremely large data sets that may be analysed computationall
 
 
 
-### **Q: What is the difference between LocalStorage, SessionStorage and Cookie?**
-1. **LocalStorage:**
-   - It's a web storage object that stores data with no expiration date. The data will not be deleted when the browser is closed and is available across browser sessions.
-   - It allows for larger amounts of data to be stored (up to 10MB).
-   - It provides methods like `setItem()`, `getItem()`, `removeItem()`, and `clear()` to manage the stored data.
-
-2. **SessionStorage:**
-   - It's similar to LocalStorage but the data is only available for the duration of the page session. The data gets cleared when the page session ends, i.e., when the browser or tab is closed.
-   - It's suitable for storing temporary data during a user's session.
-
-3. **Cookies:**
-   - Cookies are small text files stored by the browser that are sent to the server with every request.
-   - They are useful for small amounts of data and have options for expiration and domain restrictions.
-   - They are supported by older browsers and are often used as a fallback for frameworks that use LocalStorage or SessionStorage.
-
-In summary, LocalStorage, SessionStorage, and Cookies are all client-side storage solutions, each with their own use cases and limitations. LocalStorage is ideal for persistent data, SessionStorage for session-specific data, and Cookies for small amounts of data that need to be sent back to the server.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Basic Technical Questions
-
-
-
-### **Q: What is the difference between responsive and adaptive design?**
-- **Responsive design** is a technique where a website’s layout adjusts to any screen size, ensuring the website functions well on any device. It uses fluid grids to resize and rearrange the layout based on percentage values.
-- **Adaptive design**, on the other hand, involves creating multiple layouts, each optimized for a specific screen size or device type. The website detects the user’s device and displays the corresponding layout. This approach requires fixed layout sizes for specific screen dimensions, necessitating developers to create multiple layouts for predefined screen sizes or device capabilities.
+### **Q: What is Functional Programming?**
+Functional programming is a programming paradigm where programs are constructed by applying and composing functions. It is a declarative type of programming style. Its main focus is on “what to solve” in contrast to an imperative style where the main focus is “how to solve”.
 
 
 
@@ -222,9 +225,12 @@ A data attribute is a data field that defines the characteristics or features of
 
 
 
-### **Q: What is the difference between a static and dynamic website?**
-- **Static websites** are built with HTML, CSS, and JavaScript. Their content remains the same for every access, and the server sends HTML files directly to the user’s browser. Examples include personal blogs and small business websites.
-- **Dynamic websites** are built using server-side programming languages like Python, Java, PHP, Ruby, etc., and often use databases. When a user requests a page, the server runs code to generate the content, allowing for dynamic content display. Examples include social media platforms and content management systems.
+### **Q: What are the SOLID principals?**
+- **[S] - Single-responsibility Principle**: A class should have one and only one reason to change, meaning that a class should have only one job.
+- **[O] - Open-closed Principle**: Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+- **[L] - Liskov Substitution Principle**: Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.
+- **[I] - Interface Segregation Principle**: Clients should not be forced to depend on interfaces they do not use.
+- **[D] - Dependency Inversion Principle**: High-level modules should not depend on low-level modules. Both should depend on abstractions.
 
 
 
@@ -238,30 +244,217 @@ A data attribute is a data field that defines the characteristics or features of
 
 
 
-### **Q: What are the SOLID principals?**
-- **[S] - Single-responsibility Principle**: A class should have one and only one reason to change, meaning that a class should have only one job.
-- **[O] - Open-closed Principle**: Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
-- **[L] - Liskov Substitution Principle**: Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.
-- **[I] - Interface Segregation Principle**: Clients should not be forced to depend on interfaces they do not use.
-- **[D] - Dependency Inversion Principle**: High-level modules should not depend on low-level modules. Both should depend on abstractions.
+### **Q: What are the different types of software testing?**
+- **Unit Testing:** This is a type of testing where individual components of a software are tested. The purpose is to validate that each unit of the software performs as designed. A unit is the smallest testable part of any software. It usually has one or a few inputs and usually a single output. In procedural programming, a unit may be an individual function or procedure.
+
+- **Integration Testing:** Integration testing is a level of software testing where individual units are combined and tested as a group. The purpose of this level of testing is to expose faults in the interaction between integrated units. Test drivers and test stubs are used to assist in integration testing.
+
+- **Functional Testing:** Functional testing is a type of software testing whereby the system is tested against the functional requirements/specifications. Functions (or features) are tested by feeding them input and examining the output. Functional testing ensures that the requirements are properly satisfied by the application.
+
+- **System Testing:** In system testing, the entire system is tested as per the requirements. Black-box type testing that is based on overall requirements specifications, covers all combined parts of a system.
+
+- **Smoke Testing:** Smoke testing is a high-level type of software testing where the critical functionalities of the program are tested to see if they work or not. The result of this testing is used to decide if a build is stable enough to proceed with further testing.
+
+- **Regression Testing:** Regression testing is a type of software testing that ensures that previously developed and tested software still performs the same way after it is changed or interfaced with other software. The purpose of regression testing is to ensure that changes such as those mentioned above have not introduced new faults.
+
+- **Software Performance Testing:** Performance testing is a type of software testing that focuses on how a system running the system performs under a particular load. This is not about finding software bugs or defects. Performance testing measures the quality attributes of the system.
+
+- **Security Testing:** Security testing is a process intended to reveal flaws in the security mechanisms of an information system that protect data and maintain functionality as intended. Due to the logical limitations of security testing, passing security testing is not an indication that no flaws exist or that the system adequately satisfies the security requirements.
+
+- **User Acceptance Testing (UAT):** User acceptance testing (UAT) is the last phase of the software testing process. During UAT, actual software users test the software to make sure it can handle required tasks in real-world scenarios, according to specifications. UAT is one of the final and critical software project procedures that must occur before newly developed software is rolled out to the market.
+
+- **Acceptance Testing:** Acceptance testing is a term used in agile software development methodologies, particularly extreme programming, referring to the functional testing of a user story by the software development team during the implementation phase. The customer specifies scenarios to test when a user story has been correctly implemented.
+.  
+.  
+.  
+.  
+.  
+.  
+.  
+.  
+.  
+.  
+## Front-End Technical Questions
+
+### **Q: What is the difference between LocalStorage, SessionStorage and Cookie?**
+1. **LocalStorage:**
+   - It's a web storage object that stores data with no expiration date. The data will not be deleted when the browser is closed and is available across browser sessions.
+   - It allows for larger amounts of data to be stored (up to 10MB).
+   - It provides methods like `setItem()`, `getItem()`, `removeItem()`, and `clear()` to manage the stored data.
+2. **SessionStorage:**
+   - It's similar to LocalStorage but the data is only available for the duration of the page session. The data gets cleared when the page session ends, i.e., when the browser or tab is closed.
+   - It's suitable for storing temporary data during a user's session.
+3. **Cookies:**
+   - Cookies are small text files stored by the browser that are sent to the server with every request.
+   - They are useful for small amounts of data and have options for expiration and domain restrictions.
+   - They are supported by older browsers and are often used as a fallback for frameworks that use LocalStorage or SessionStorage.
+In summary, LocalStorage, SessionStorage, and Cookies are all client-side storage solutions, each with their own use cases and limitations. LocalStorage is ideal for persistent data, SessionStorage for session-specific data, and Cookies for small amounts of data that need to be sent back to the server.
+
+
+
+### **Q: What is the difference between a Function Declaration and a Function Statement in JavaScript?**
+- **Function Declaration:**
+   - A function declaration, also known as a function statement, declares a function with the `function` keyword[^1^][1][^2^][2].
+   - The function declaration must have a function name[^1^][1][^2^][2].
+   - Function declarations are hoisted, meaning they are executed before any other code[^1^][1][^2^][2].
+   - The function in the function declaration can be accessed before and after the function definition[^1^][1][^2^][2].
+   - Syntax: 
+     ```javascript
+     function functionName(param1, param2) {
+       // Set of statements
+     }
+     ```
+- **Function Expression:**
+   - A function expression is similar to a function declaration without the function name[^1^][1][^2^][2].
+   - Function expressions can be stored in a variable assignment[^1^][1][^2^][2].
+   - Function expressions load and execute only when the program interpreter reaches the line of code[^1^][1][^2^][2].
+   - The function in the function expression can be accessed only after the function definition[^1^][1][^2^][2].
+   - Function expressions are not hoisted[^1^][1][^2^][2].
+   - Syntax: 
+     ```javascript
+     var functionName = function(param1, param2) {
+       // Set of statements
+     }
+     ```
+
+
+
+### **Q: What is the difference between `onload` and `ready`?**
+- **onload:** This is a standard event in the DOM (Document Object Model) that is triggered when the entire web page has fully loaded. This includes all content such as images, scripts, CSS, etc. It's often used when the script needs to work with the size of images or other resources that need to be fully loaded.
+
+- **ready:** This event is specific to jQuery, a popular JavaScript library. The `ready` event is triggered as soon as the DOM is loaded and ready to be manipulated by script. This means it can be triggered before all images and other resources are fully loaded. It's often used when the script just needs to work with the DOM or CSS properties, and doesn't need to wait for all resources to load.
+
+
+
+### **Q: What is the difference between responsive and adaptive design?**
+- **Responsive design** is a technique where a website’s layout adjusts to any screen size, ensuring the website functions well on any device. It uses fluid grids to resize and rearrange the layout based on percentage values.
+- **Adaptive design**, on the other hand, involves creating multiple layouts, each optimized for a specific screen size or device type. The website detects the user’s device and displays the corresponding layout. This approach requires fixed layout sizes for specific screen dimensions, necessitating developers to create multiple layouts for predefined screen sizes or device capabilities.
+
+
+
+### **Q: What is the difference between a static and dynamic website?**
+- **Static websites** are built with HTML, CSS, and JavaScript. Their content remains the same for every access, and the server sends HTML files directly to the user’s browser. Examples include personal blogs and small business websites.
+- **Dynamic websites** are built using server-side programming languages like Python, Java, PHP, Ruby, etc., and often use databases. When a user requests a page, the server runs code to generate the content, allowing for dynamic content display. Examples include social media platforms and content management systems.
 
 
 
 ### **Q: Why is RESTful API a popular choice in web development?**
 RESTful API is a web development approach that offers several benefits, including being Stateless, Scalable, Performant, and Cacheable.
-
 - **Stateless**: RESTful API is designed to be stateless. This means each request from the client to the server contains all the necessary information for the server to process it. The server doesn't need to maintain client state between requests, simplifying the server's architecture and enhancing scalability.
 - **Scalable and Performant**: The stateless nature of RESTful API allows for better load balancing and horizontal scaling. Servers can distribute the workload more easily without coordinating client states, leading to improved performance.
-
 These features make RESTful API a popular choice for enhancing the efficiency and maintainability of web services.
 
 
+
+### **Q: What is the box model in CSS?**
+The CSS box model is a key concept that defines how elements are rendered on a webpage. It consists of four main components:
+- **Content**: The area holding the actual content, like text or images.
+- **Padding**: The space between the content and the border.
+- **Border**: The line that goes around the padding and content.
+- **Margin**: The space between the border and the outside of the element.
+Each of these components contributes to the total size of the element, which is crucial to consider during webpage design and layout.
+
+
+
+### **Q: What is V8?**
+V8 is an open-source JavaScript engine developed by Google, written in C++. It implements JavaScript according to the ECMAScript specification and provides a runtime for executing JavaScript code. It's used in applications like Google Chrome and Node.js.  
+
+A key feature of V8 is its independence from the browser it runs in. This allowed Node.js developers to use V8 to execute server-side JavaScript, contributing to Node.js's popularity.
+
+
+
+### **Q: What is hoisting in JavaScript?**
+**Hoisting** is a feature in JavaScript that automatically moves variable, function, and class declarations to the top of their containing scope during the code parsing phase, before the code has been executed. This means you can use variables or functions before they are declared in the code.  
+
+However, it's important to note that hoisting only applies to the declarations, not the initializations. If a variable is declared and initialized after using it, the variable will be undefined until it is initialized. This is because only the declaration is hoisted, not the initialization.
+
+
+
+### **Q: What is a JavaScript Promise, and what are its different states?**
+A **JavaScript Promise** is an object that signifies the eventual completion or failure of an asynchronous operation. It simplifies the management of multiple async operations and provides better error handling than callbacks or events. A Promise object can exist in one of three states:
+
+- **Pending**: This is the initial state. The Promise is neither fulfilled nor rejected.
+- **Fulfilled**: This means the operation has completed successfully.
+- **Rejected**: This indicates that the operation has failed.
+
+Promises are a powerful tool in JavaScript for managing asynchronous operations, making code easier to read and reason about.
+
+
+
+### **Q: How do you handle browser compatibility issues?**
+Browsers like Google Chrome, Mozilla Firefox, Safari, Microsoft Edge, etc., interpret web code differently. This can cause a web page or application to look and function differently across browsers. Here are some tips to handle browser compatibility issues:
+
+- **Use a CSS Reset**: Different browsers have different default styles, which can cause layout inconsistencies. A CSS reset can help by setting a common baseline for all browsers.
+- **Use Cross-Browser Frameworks and Libraries**: Frameworks and libraries like jQuery, React, or Angular can help developers avoid browser-specific code and provide a consistent interface across different browsers.
+- **Test on Multiple Browsers and Devices**: Developers should test their websites or applications on multiple browsers, including popular ones like Chrome, Firefox, Safari, and Edge, to ensure compatibility.
+
+- **Use Polyfills and Shims**: Polyfills and shims are code snippets that provide fallback functionality for web features not supported by some browsers. Libraries like Modernizr, Polyfill.io, or HTML5 Shiv can help fill in gaps in browser support.
+
+
+
+### **Q: What do we mean by MEAN Stack?**
+**MEAN** is a tech stack that stands for:
+
+- **MongoDB**: A popular NoSQL database that stores data in a flexible, JSON-like format.
+- **Express.js**: A back-end web application framework running on top of Node.js.
+- **Angular.js**: A front-end web application framework developed by Google.
+- **Node.js**: A JavaScript runtime built on Chrome's V8 JavaScript engine that allows running JavaScript on the server side.
+
+MEAN is a JavaScript-based stack used for developing cloud-ready applications. It provides a complete solution for building both the front-end and back-end of dynamic websites and applications using a single technology stack. This stack has gained popularity due to its user-friendly nature and open-source availability, which allows for community-driven improvements and updates.
+
+
+
+### **Q: What is jQuery, and what are its features?**
+jQuery is a fast and lightweight JavaScript library designed to simplify web development by reducing the amount of code needed. It offers several key features:
+- **HTML/DOM Manipulation**: Allows easy manipulation of HTML documents and the Document Object Model (DOM).
+- **Cross-Browser Compatibility**: Ensures consistent behavior across different web browsers.
+- **CSS Manipulation**: Provides methods for changing CSS properties of elements.
+- **HTML Event Methods**: Facilitates handling of user interactions through HTML events.
+- **Effects and Animations**: Supports various effects and animations to enhance user experience.
+- **AJAX Support**: Enables asynchronous web applications with AJAX.
+- **Plugins**: Allows extension of jQuery's functionality with plugins.
+
+
+
+### **Q: How do you share code between files in JavaScript?**
+In JavaScript, code can be shared between files using 'imports' and 'exports'. This allows for modular programming, where code is split into smaller, reusable modules. Here's how it works:
+
+- **ES5 Syntax**: In ES5, we use the `require` statement to import functions, objects or values from another file, and the `module.exports` statement to export them. Here's an example:
+
+```
+// File: module.js
+export const name = 'JavaScript Module';
+
+// File: main.js
+import { name } from './module.js';
+console.log(name);  // Outputs: 'JavaScript Module'
+```
+.  
+.  
+.  
+.  
+.  
+.  
+.  
+.  
+.  
+.  
+## Back-End Technical Questions
 
 ### **Q: Explain the MVC design pattern?**
 The Model-View-Controller (MVC) is a design pattern used in software development, particularly in web development. It simplifies complex software development by dividing it into three components:
 - **Model**: Represents the application's data and business logic. It manages data, performs calculations, and responds to the controller's requests.
 - **View**: Handles the user interface of the application. It displays the model's data to the users and provides a platform for interaction.
 - **Controller**: Manages both the Model and View. It handles the application's flow, including data flow within the Model and updates the View whenever data changes.
+
+
+
+### **Q: What is the difference between MVC (Model View Controller) and MVP (Model View Presenter)?**
+The **MVC** (Model-View-Controller) and **MVP** (Model-View-Presenter) patterns are both architectural design patterns that help in organizing code in a structured manner:
+
+- **MVC Pattern**: In MVC, the code is divided into three components: Model, View, and Controller. The Controller acts as an intermediary between the Model (which represents the data and business logic) and the View (which displays the data to the user). However, the support for unit testing is somewhat limited in the MVC pattern.
+
+- **MVP Pattern**: MVP is an advanced iteration of software architecture, also composed of three components: Model, View, and Presenter. Unlike MVC, an interface in MVP communicates between the View-Presenter and Presenter-Model, making the View and Model completely independent. This separation makes unit testing highly supported in the MVP pattern, as each component can be tested independently.
 
 
 
@@ -293,53 +486,8 @@ Data security is crucial for protecting sensitive information, maintaining trust
 
 
 
-### **Q: What is the box model in CSS?**
-The CSS box model is a key concept that defines how elements are rendered on a webpage. It consists of four main components:
-- **Content**: The area holding the actual content, like text or images.
-- **Padding**: The space between the content and the border.
-- **Border**: The line that goes around the padding and content.
-- **Margin**: The space between the border and the outside of the element.
-Each of these components contributes to the total size of the element, which is crucial to consider during webpage design and layout.
-
-
-
 ### **Q: Distinguish between Hashtable and HashMap.**
 ![image](https://github.com/XxDaShTixX/Software-Engineering-Essentials/assets/11358087/6315e9cf-22e5-44c6-9dbc-800eb3f3cc03)
-
-
-
-### **Q: What is V8?**
-V8 is an open-source JavaScript engine developed by Google, written in C++. It implements JavaScript according to the ECMAScript specification and provides a runtime for executing JavaScript code. It's used in applications like Google Chrome and Node.js.  
-
-A key feature of V8 is its independence from the browser it runs in. This allowed Node.js developers to use V8 to execute server-side JavaScript, contributing to Node.js's popularity.
-
-
-### **Q: What is jQuery, and what are its features?**
-jQuery is a fast and lightweight JavaScript library designed to simplify web development by reducing the amount of code needed. It offers several key features:
-- **HTML/DOM Manipulation**: Allows easy manipulation of HTML documents and the Document Object Model (DOM).
-- **Cross-Browser Compatibility**: Ensures consistent behavior across different web browsers.
-- **CSS Manipulation**: Provides methods for changing CSS properties of elements.
-- **HTML Event Methods**: Facilitates handling of user interactions through HTML events.
-- **Effects and Animations**: Supports various effects and animations to enhance user experience.
-- **AJAX Support**: Enables asynchronous web applications with AJAX.
-- **Plugins**: Allows extension of jQuery's functionality with plugins.
-
-
-
-### **Q: What is namespace in C#?**
-A **namespace** is a keyword used to declare a scope that contains a set of related classes and types. It helps organize code into logical groups and provides unique class names. This allows the same class name to be used in different namespaces without conflict.
-
-
-
-### **Q: What is hoisting in JavaScript?**
-**Hoisting** is a feature in JavaScript that automatically moves variable, function, and class declarations to the top of their containing scope during the code parsing phase, before the code has been executed. This means you can use variables or functions before they are declared in the code.  
-
-However, it's important to note that hoisting only applies to the declarations, not the initializations. If a variable is declared and initialized after using it, the variable will be undefined until it is initialized. This is because only the declaration is hoisted, not the initialization.
-
-
-
-### **Q: What is hoisting in JavaScript?**
-**Hoisting** is a feature in JavaScript that automatically moves variable, function, and class declarations to the top of their containing scope during the code parsing phase, before the code has been executed. This means you can use variables or functions before they are declared in the code.  
 
 
 
@@ -355,95 +503,8 @@ Backtracking can be applied to a variety of problem types:
 
 
 
-### **Q: What is a JavaScript Promise, and what are its different states?**
-A **JavaScript Promise** is an object that signifies the eventual completion or failure of an asynchronous operation. It simplifies the management of multiple async operations and provides better error handling than callbacks or events. A Promise object can exist in one of three states:
-
-- **Pending**: This is the initial state. The Promise is neither fulfilled nor rejected.
-- **Fulfilled**: This means the operation has completed successfully.
-- **Rejected**: This indicates that the operation has failed.
-
-Promises are a powerful tool in JavaScript for managing asynchronous operations, making code easier to read and reason about.
-
-
-
-### **Q: What is the difference between MVC (Model View Controller) and MVP (Model View Presenter)?**
-The **MVC** (Model-View-Controller) and **MVP** (Model-View-Presenter) patterns are both architectural design patterns that help in organizing code in a structured manner:
-
-- **MVC Pattern**: In MVC, the code is divided into three components: Model, View, and Controller. The Controller acts as an intermediary between the Model (which represents the data and business logic) and the View (which displays the data to the user). However, the support for unit testing is somewhat limited in the MVC pattern.
-
-- **MVP Pattern**: MVP is an advanced iteration of software architecture, also composed of three components: Model, View, and Presenter. Unlike MVC, an interface in MVP communicates between the View-Presenter and Presenter-Model, making the View and Model completely independent. This separation makes unit testing highly supported in the MVP pattern, as each component can be tested independently.
-
-
-
-### **Q: What do we mean by MEAN Stack?**
-**MEAN** is a tech stack that stands for:
-
-- **MongoDB**: A popular NoSQL database that stores data in a flexible, JSON-like format.
-- **Express.js**: A back-end web application framework running on top of Node.js.
-- **Angular.js**: A front-end web application framework developed by Google.
-- **Node.js**: A JavaScript runtime built on Chrome's V8 JavaScript engine that allows running JavaScript on the server side.
-
-MEAN is a JavaScript-based stack used for developing cloud-ready applications. It provides a complete solution for building both the front-end and back-end of dynamic websites and applications using a single technology stack. This stack has gained popularity due to its user-friendly nature and open-source availability, which allows for community-driven improvements and updates.
-
-
-
-### **Q: How do you handle browser compatibility issues?**
-Browsers like Google Chrome, Mozilla Firefox, Safari, Microsoft Edge, etc., interpret web code differently. This can cause a web page or application to look and function differently across browsers. Here are some tips to handle browser compatibility issues:
-
-- **Use a CSS Reset**: Different browsers have different default styles, which can cause layout inconsistencies. A CSS reset can help by setting a common baseline for all browsers.
-- **Use Cross-Browser Frameworks and Libraries**: Frameworks and libraries like jQuery, React, or Angular can help developers avoid browser-specific code and provide a consistent interface across different browsers.
-- **Test on Multiple Browsers and Devices**: Developers should test their websites or applications on multiple browsers, including popular ones like Chrome, Firefox, Safari, and Edge, to ensure compatibility.
-
-- **Use Polyfills and Shims**: Polyfills and shims are code snippets that provide fallback functionality for web features not supported by some browsers. Libraries like Modernizr, Polyfill.io, or HTML5 Shiv can help fill in gaps in browser support.
-
-
-
-### **Q: What is the difference between abstract and interface?**
-Here's a summarized comparison of abstract classes and interfaces in C#:
-
-- **Methods**: Abstract classes in C# can have both abstract and non-abstract methods (virtual or concrete), while interfaces can only have method signatures.
-- **Variables**: Variables in an abstract class can be non-static and non-readonly, but those in an interface are always static and readonly in nature.
-- **Implementation**: An abstract class can provide an implementation of an interface, but an interface can't implement an abstract class.
-- **Members**: A C# abstract class can have public, private, and protected members, whereas an interface only has public members.
-- **Inheritance**: An abstract class is extended using the ":" keyword, while an interface is implemented using the ":" keyword.
-
-In essence, while both abstract classes and interfaces are used to create reusable and modular code in C#, they have different rules and use-cases.
-
-
-
 ### **Q: What are the main differences between process and thread?**
 ![image](https://github.com/XxDaShTixX/Software-Engineering-Essentials/assets/11358087/d9652012-c238-4be7-9367-99801af9e870)
-
-
-
-### **Q: How do you share code between files in JavaScript?**
-In JavaScript, code can be shared between files using 'imports' and 'exports'. This allows for modular programming, where code is split into smaller, reusable modules. Here's how it works:
-
-- **ES5 Syntax**: In ES5, we use the `require` statement to import functions, objects or values from another file, and the `module.exports` statement to export them. Here's an example:
-
-```
-// File: module.js
-export const name = 'JavaScript Module';
-
-// File: main.js
-import { name } from './module.js';
-console.log(name);  // Outputs: 'JavaScript Module'
-```
-
-
-
-### **Q: How do you share code between files in JavaScript?**
-
-
-
-
-
-
-
-
-
-
-
 
 
 
