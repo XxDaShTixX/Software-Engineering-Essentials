@@ -9,6 +9,189 @@ I have compiled a list of questions that either I personally have gone through o
 
 ## Technical Questions
 
+
+
+### **Q: Can you explain what is Object-Oriented Programming (OOP)?**
+Object-Oriented Programming (OOP) is a programming paradigm that uses “objects” - data structures consisting of data fields and methods together with their interactions - to design applications and computer programs.
+
+
+
+### **Q: What are the pillars of Object Oriented Programming (OOP)?**
+- **Encapsulation**: This principle is about bundling the data, and the methods that operate on this data, into a single unit called a class. This mechanism helps to hide the internal state of an object and protect it from unauthorized access.
+- **Abstraction**: Abstraction is about hiding the complexity and only showing the essential features of the object. So in a way, Abstraction means hiding the real implementation and we, as users, knowing only how to use it.
+- **Inheritance**: Inheritance is a mechanism in which one object acquires all the properties and behaviors of a parent object. It's an important part of OOPs as it promotes the concept of reusability and is a way to achieve the desired functionality.
+- **Polymorphism**: Polymorphism allows methods to do different things based on the object that it is acting upon. This is important for separating and organizing code to make it more flexible and maintainable.
+
+
+
+### **Q: What is the difference between a class and an object?**
+A class is a blueprint or template from which objects are created. An object is an instance of a class.
+
+
+
+### **Q: What is inheritance in OOP?**
+Inheritance is a mechanism in which one class acquires the property of another class. It supports the concept of hierarchical classification.
+
+
+
+### **Q: What is polymorphism in OOP?**
+Polymorphism is the ability of an object to take on many forms. The most common use of polymorphism in OOP occurs when a parent class reference is used to refer to a child class object.
+
+
+
+### **Q: Can you explain what is a data structure?**
+A data structure is a particular way of organizing and storing data in a computer so that it can be accessed and modified efficiently.
+
+
+
+### **Q: What is the difference between Stack and Queue?**
+Stack is a LIFO (Last in First out) structure and Queue is a FIFO (First in First out) structure.
+
+
+
+### **Q: What is an algorithm?**
+An algorithm is a step-by-step procedure, which defines a set of instructions to be executed in a certain order to get the desired output.
+
+
+### **Q: What is the time complexity of an algorithm?**
+Time complexity of an algorithm quantifies the amount of time taken by an algorithm to run, as a function of the length of the input.
+
+
+
+### **Q: What is the space complexity of an algorithm?**
+Space complexity of an algorithm quantifies the amount of space or memory taken by an algorithm to run, as a function of the length of the input.
+
+
+### **Q: What is recursion in programming?**
+Recursion in programming is a method where the solution to a problem depends on solutions to smaller instances of the same problem.
+
+
+
+### **Q: What is a database?**
+A database is an organized collection of data stored and accessed electronically. Databases are used to support storage, manipulation, and retrieval of data.
+
+
+
+### **Q: What is SQL?**
+SQL stands for Structured Query Language. It’s a standard language for interacting with databases. SQL can be used to insert, search, update, and delete database records.
+
+
+
+### **Q: What is the difference between SQL and NoSQL databases?**
+- **SQL databases** are relational, use structured query language, and are best for structured data with complex queries and transactions.
+- **NoSQL databases** are non-relational, can handle various data types (structured, semi-structured, and unstructured), and are designed for scalability, making them ideal for big data and real-time web applications.
+
+
+
+### **Q: What is Agile methodology?**
+Agile is a philosophy or mindset centered around continuous improvement and flexibility. It’s a set of principles that guide project management and software development, focusing on delivering incremental value, fostering team collaboration, continual planning, and learning.
+![image](https://github.com/user-attachments/assets/152fa7c6-58f4-4ffc-9378-fa5127c464f1)
+Reference: https://hygger.io/guides/agile/
+
+
+
+### **Q: What is Scrum?**
+Scrum is a specific framework for implementing Agile. It structures work into short, iterative cycles known as sprints1. Scrum teams commit to shipping work at the end of each sprint and adopt practices and a team structure that helps them achieve this cadence.
+![image](https://github.com/user-attachments/assets/8d429009-c218-4b2b-bdd2-17590886a21e)
+Reference: https://www.scnsoft.com/software-development/software-development-models
+
+
+
+### **Q: What is a RESTful API?**
+A RESTful API is an architectural style for an application program interface (API) that uses HTTP requests to access and use data.
+
+
+
+### **Q: What is Git?**
+Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+
+
+
+### **Q: What is the difference between Git and GitHub?**
+- **Git** is a version control system that lets you manage and keep track of your source code history.
+- **GitHub** is a cloud-based hosting service that lets you manage Git repositories.
+
+
+
+### **Q: What is a pull request in GitHub?**
+A pull request is a method of submitting contributions to an open development project. It occurs when a developer asks for changes committed to an external repository to be considered for inclusion in a project’s main repository.
+
+
+
+### **Q: What is Docker?**
+Docker is an open-source platform that automates the deployment, scaling, and management of applications. It does this by isolating applications into containers.
+
+
+
+### **Q: What is a microservice?**
+Microservices - also known as the microservice architecture - is an architectural style that structures an application as a collection of services that are highly maintainable and testable, loosely coupled, independently deployable, organized around business capabilities, and owned by a small team.
+
+
+
+### **Q: What is Kubernetes?**
+Kubernetes (K8s) is an open-source system for automating deployment, scaling, and management of containerized applications.
+
+
+
+### **Q: What is a Full Stack Developer?**
+A Full Stack Developer is a developer who can handle all the work of databases, servers, systems engineering, and clients. They are proficient in both front-end and back-end coding.
+
+
+
+### **Q: What is a software development life cycle (SDLC)?**
+The Software Development Life Cycle (SDLC) is a systematic process that defines the tasks performed during the development of software. It’s a methodology used to ensure that software is developed in a consistent, efficient, and high-quality manner.
+
+
+
+### **Q: What is DevOps?**
+DevOps is a set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the systems development life cycle and provide continuous delivery with high software quality.
+
+
+
+### **Q: What is Continuous Integration/Continuous Deployment (CI/CD)?**
+CI/CD is a process that happens prior to deployment. It involves merging code changes frequently (Continuous Integration), running automated tests to ensure the application is not broken by the changes (also part of Continuous Integration), and then automatically deploying these changes to a staging or production environment (Continuous Deployment/Delivery).
+
+
+
+### **Q: What is Test-Driven Development (TDD)?**
+Test-Driven Development (TDD) is a software development process where you write a test before you write your code, and then write the code that makes the test pass.
+
+
+
+### **Q: What is a software framework?**
+A software framework is a universal, reusable software environment that provides particular functionality as part of a larger software platform to facilitate development of software applications.
+
+
+
+### **Q: What is cloud computing?**
+Cloud computing is the delivery of computing services—including servers, storage, databases, networking, software, analytics, and intelligence—over the Internet (“the cloud”) to offer faster innovation, flexible resources, and economies of scale.
+
+
+
+### **Q: What is Big Data?**
+Big Data refers to extremely large data sets that may be analysed computationally to reveal patterns, trends, and associations, especially relating to human behaviour and interactions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Basic Technical Questions
+
+
+
 ### **Q: What is the difference between responsive and adaptive design?**
 - **Responsive design** is a technique where a website’s layout adjusts to any screen size, ensuring the website functions well on any device. It uses fluid grids to resize and rearrange the layout based on percentage values.
 - **Adaptive design**, on the other hand, involves creating multiple layouts, each optimized for a specific screen size or device type. The website detects the user’s device and displays the corresponding layout. This approach requires fixed layout sizes for specific screen dimensions, necessitating developers to create multiple layouts for predefined screen sizes or device capabilities.
@@ -45,19 +228,10 @@ A data attribute is a data field that defines the characteristics or features of
 
 
 
-### **Q: What are the pillars of Object Oriented Programming (OOP)?**
-- **Encapsulation**: This principle is about bundling the data, and the methods that operate on this data, into a single unit called a class. This mechanism helps to hide the internal state of an object and protect it from unauthorized access.
-- **Abstraction**: Abstraction is about hiding the complexity and only showing the essential features of the object. So in a way, Abstraction means hiding the real implementation and we, as users, knowing only how to use it.
-- **Inheritance**: Inheritance is a mechanism in which one object acquires all the properties and behaviors of a parent object. It's an important part of OOPs as it promotes the concept of reusability and is a way to achieve the desired functionality.
-- **Polymorphism**: Polymorphism allows methods to do different things based on the object that it is acting upon. This is important for separating and organizing code to make it more flexible and maintainable.
-
-
-
 ### **Q: Why is RESTful API a popular choice in web development?**
 RESTful API is a web development approach that offers several benefits, including being Stateless, Scalable, Performant, and Cacheable.
 
 - **Stateless**: RESTful API is designed to be stateless. This means each request from the client to the server contains all the necessary information for the server to process it. The server doesn't need to maintain client state between requests, simplifying the server's architecture and enhancing scalability.
-
 - **Scalable and Performant**: The stateless nature of RESTful API allows for better load balancing and horizontal scaling. Servers can distribute the workload more easily without coordinating client states, leading to improved performance.
 
 These features make RESTful API a popular choice for enhancing the efficiency and maintainability of web services.
@@ -66,11 +240,8 @@ These features make RESTful API a popular choice for enhancing the efficiency an
 
 ### **Q: Explain the MVC design pattern?**
 The Model-View-Controller (MVC) is a design pattern used in software development, particularly in web development. It simplifies complex software development by dividing it into three components:
-
 - **Model**: Represents the application's data and business logic. It manages data, performs calculations, and responds to the controller's requests.
-
 - **View**: Handles the user interface of the application. It displays the model's data to the users and provides a platform for interaction.
-
 - **Controller**: Manages both the Model and View. It handles the application's flow, including data flow within the Model and updates the View whenever data changes.
 
 
@@ -239,6 +410,10 @@ export const name = 'JavaScript Module';
 import { name } from './module.js';
 console.log(name);  // Outputs: 'JavaScript Module'
 ```
+
+
+
+### **Q: How do you share code between files in JavaScript?**
 
 
 
