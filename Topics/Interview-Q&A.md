@@ -1,7 +1,7 @@
 # Table of Content
 - [Introduction](#introduction)
 - [Software Engineering Basics](#software-engineering-basics)
-- [Front-End Questions](#front-end-technical-questions)
+- [Front-End Questions](#front-end-questions)
 - [Back-End Questions](#back-end-questions)
 - [References](#references)
 
@@ -273,7 +273,7 @@ A data attribute is a data field that defines the characteristics or features of
 .  
 .  
 .  
-## Front-End Technical Questions
+## Front-End Questions
 
 ### **Q: What is the difference between LocalStorage, SessionStorage and Cookie?**
 1. **LocalStorage:**
@@ -438,7 +438,7 @@ console.log(name);  // Outputs: 'JavaScript Module'
 .  
 .  
 .  
-## Back-End Technical Questions
+## Back-End Questions
 
 ### **Q: Explain the MVC design pattern?**
 The Model-View-Controller (MVC) is a design pattern used in software development, particularly in web development. It simplifies complex software development by dividing it into three components:
