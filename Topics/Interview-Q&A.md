@@ -2,8 +2,7 @@
 - [Introduction](#introduction)
 - [Software Engineering Basics](#software-engineering-basics)
 - [Front-End Questions](#front-end-technical-questions)
-- [Back-End Questions](#back-end-technicalquestions)
-- [Behavioral Questions](#behavioral-questions)
+- [Back-End Questions](#back-end-questions)
 - [References](#references)
 
 ## Introduction
