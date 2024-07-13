@@ -13,7 +13,7 @@ I have compiled a list of questions that either I personally have gone through o
 
 
 
-## Software Engineering Concepts
+## Software Engineering Basics
 
 ### **Q: Can you explain what is Object-Oriented Programming (OOP)?**
 Object-Oriented Programming (OOP) is a programming paradigm that uses “objects” - data structures consisting of data fields and methods together with their interactions - to design applications and computer programs.
