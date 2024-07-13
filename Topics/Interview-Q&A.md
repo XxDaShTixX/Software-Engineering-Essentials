@@ -594,7 +594,7 @@ This code uses a deque to keep track of the maximum element for each window. The
 
 
 
-### **Stock Buy Sell Problem**
+### **Q: Stock Buy Sell Problem**
 The “Stock Buy Sell Problem” is a common problem where you’re given an array for which the ith element is the price of a given stock on day i. The goal is to design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times). However, you must sell the stock before you can buy again.
 ```
 public class Solution {
@@ -622,7 +622,7 @@ This code works by iterating through the array of prices and adding to the maxim
 
 
 
-### **Merge K Sorted Arrays**
+### **Q: Merge K Sorted Arrays**
 The “Merge K Sorted Arrays” problem is a common problem where you are given K sorted arrays and you need to merge them into a single sorted array.
 ```
 public class Node : IComparable<Node>
