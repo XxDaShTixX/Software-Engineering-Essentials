@@ -3,6 +3,7 @@
 - [Software Engineering Basics](#software-engineering-basics)
 - [Front-End Questions](#front-end-questions)
 - [Back-End Questions](#back-end-questions)
+- [Coding Problems](#coding-problems)
 - [References](#references)
 
 ## Introduction
@@ -508,6 +509,175 @@ Backtracking can be applied to a variety of problem types:
 
 
 
+## Coding Problems
+
+### **Q: Implement a reversing linked list in C#**
+This code assumes that you have a `Node` class with a `Value` property and a `Next` property.
+```
+public class Node
+{
+    public int Value { get; set; }
+    public Node Next { get; set; }
+}
+
+public Node ReverseLinkedList(Node head)
+{
+    // Initialize current, previous, and next pointers
+    Node current = head;
+    Node previous = null;
+    Node next = null;
+
+    while (current != null)
+    {
+        // Store the next node, then update the current node
+        next = current.Next;
+        current.Next = previous;
+
+        // Move previous and current one step forward
+        previous = current;
+        current = next;
+    }
+
+    return previous; // new head of the reversed list
+}
+```
+This function works by iterating through the linked list, changing the `Next` pointer of each node to point to the previous node. The `previous` variable keeps track of the already reversed part of the list, while the `current` variable keeps track of the node that’s currently being processed. The `next` variable is used to temporarily store the next node in the original list before changing the `Next` pointer of the current node. The function returns the `previous` node, which is the new head of the reversed list.
+
+
+
+### **Q: Maximum in Sliding Window Problem**
+The “Maximum in Sliding Window Problem” is a common problem in computer science where you are given an array of integers and a window size, and you need to determine the maximum value in each window as the window slides through the array.
+```
+public class Solution {
+    public int[] MaxSlidingWindow(int[] nums, int k) {
+        // Check for base case
+        if (nums == null || nums.Length == 0) return new int[0];
+
+        // Initialize the result array
+        int[] result = new int[nums.Length - k + 1];
+
+        // Create a Double Ended Queue, Deque (in C# it's a LinkedList) 
+        // It will store indexes of useful elements in every window
+        LinkedList<int> deque = new LinkedList<int>();
+
+        // Process the first k (window size) elements of array
+        for (int i = 0; i < nums.Length; i++) {
+            // For every element, the previous smaller elements are useless
+            // so remove them from deque
+
+            // Remove the elements which are out of this window
+            if (deque.Count != 0 && deque.First.Value + k <= i) {
+                deque.RemoveFirst();
+            }
+
+            // Remove all elements smaller than the currently
+            // being added element (remove useless elements)
+            while (deque.Count != 0 && nums[deque.Last.Value] < nums[i]) {
+                deque.RemoveLast();
+            }
+
+            // Add current element at the rear of deque
+            deque.AddLast(i);
+
+            // The element at the front of the deque is the largest element of
+            // previous window, so add to the result array
+            if (i + 1 >= k) {
+                result[i + 1 - k] = nums[deque.First.Value];
+            }
+        }
+
+        return result;
+    }
+}
+```
+This code uses a deque to keep track of the maximum element for each window. The deque stores the indices of the elements, not the actual elements. The front of the deque contains the index of the maximum element of the current window, while the rest of the deque contains indices of elements that could become the maximum if the current maximum is removed. These potential maximums are stored in decreasing order in the deque. When we move to the next window, we add the new element to the deque (removing all smaller elements at the end), and remove the front of the deque if it’s outside the window. The front of the deque is then the maximum of the new window. This ensures that we can find the maximum of each window in constant time, making the algorithm very efficient. The time complexity of this algorithm is O(n), where n is the number of elements in the array, and the space complexity is O(k), where k is the size of the window. This is because we store at most k + 1 elements in the deque.
+
+
+
+### **Stock Buy Sell Problem**
+The “Stock Buy Sell Problem” is a common problem where you’re given an array for which the ith element is the price of a given stock on day i. The goal is to design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times). However, you must sell the stock before you can buy again.
+```
+public class Solution {
+    public int MaxProfit(int[] prices) {
+        // Check for edge cases
+        if (prices == null || prices.Length <= 1) return 0;
+
+        int maxProfit = 0;
+
+        // Go through each day
+        for (int i = 1; i < prices.Length; i++) {
+            // If the current price is greater than the previous price,
+            // we could get a profit from it by buying at the previous price
+            // and selling at the current price
+            if (prices[i] > prices[i - 1]) {
+                maxProfit += prices[i] - prices[i - 1];
+            }
+        }
+
+        return maxProfit;
+    }
+}
+```
+This code works by iterating through the array of prices and adding to the maximum profit whenever the current price is greater than the previous price. This is because we can always maximize our profit by buying at the lower price and selling at the higher price. The time complexity of this algorithm is O(n), where n is the number of days, and the space complexity is O(1), because we only use a constant amount of space to store the maximum profit.
+
+
+
+### **Merge K Sorted Arrays**
+The “Merge K Sorted Arrays” problem is a common problem where you are given K sorted arrays and you need to merge them into a single sorted array.
+```
+public class Node : IComparable<Node>
+{
+    public int Value { get; set; }
+    public int ArrayIndex { get; set; } // Index of array
+    public int ElementIndex { get; set; } // Index of next element in array
+
+    public int CompareTo(Node other)
+    {
+        if (Value > other.Value) return 1;
+        if (Value < other.Value) return -1;
+        return 0;
+    }
+}
+
+public class Solution
+{
+    public List<int> MergeKSortedArrays(List<List<int>> arrays)
+    {
+        SortedSet<Node> pq = new SortedSet<Node>();
+        List<int> result = new List<int>();
+
+        // Initialize the priority queue with the first element from each array
+        for (int i = 0; i < arrays.Count; i++)
+        {
+            if (arrays[i].Count > 0)
+            {
+                pq.Add(new Node { Value = arrays[i][0], ArrayIndex = i, ElementIndex = 0 });
+            }
+        }
+
+        // Take the smallest (top) element from the priority queue,
+        // add it to the result list, and insert the next element from the same array into the priority queue
+        while (pq.Count > 0)
+        {
+            Node node = pq.Min;
+            pq.Remove(node);
+            result.Add(node.Value);
+            if (node.ElementIndex + 1 < arrays[node.ArrayIndex].Count)
+            {
+                pq.Add(new Node { Value = arrays[node.ArrayIndex][node.ElementIndex + 1], ArrayIndex = node.ArrayIndex, ElementIndex = node.ElementIndex + 1 });
+            }
+        }
+
+        return result;
+    }
+}
+```
+This code works by maintaining a priority queue of the smallest unprocessed element from each array. The priority queue is initialized with the first element from each array. Then, in each iteration, the smallest element is removed from the priority queue and added to the result list, and the next element from the same array is added to the priority queue. This process continues until the priority queue is empty, at which point all elements have been processed and the result list contains the merged and sorted elements from all arrays. The time complexity of this algorithm is O(N log K), where N is the total number of elements and K is the number of arrays, and the space complexity is O(K), because the priority queue stores at most one element from each array.
+
+
+
+
 
 ## References
 - https://www.turing.com/interview-questions/senior-full-stack
+- https://www.reddit.com/r/learnprogramming/comments/voet39/interview_questions_for_a_full_stack_position/
