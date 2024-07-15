@@ -294,6 +294,22 @@ DDD is a major software design approach, focusing on modeling software to match 
 
 
 
+### **Q: What is JIT (Just-in-Time)?**
+JIT refers to a type of compilation that happens during the execution of a program, rather than prior to execution. This approach can lead to significant performance improvements by optimizing the program for the specific hardware and conditions at runtime.
+
+
+
+### **Q: What is GC (Garbage Collector)?**
+Garbage collection is a form of automatic memory management. It’s a process that attempts to reclaim memory occupied by objects that are no longer in use by the program. .NET and .NET Core both have a garbage collector that manages the allocation and release of memory for your applications.
+
+
+
+### **Q: .NET vs .NET Core?**
+- **.NET Framework**: is a platform for building applications on Windows. It’s a mature framework with a large library base, great for building Windows desktop applications and games, and has excellent support for building web applications through ASP.NET.
+- **.NET Core**: is a cross-platform (Windows, Linux, macOS) framework designed for building modern, cloud-based, and internet-connected applications3. It’s open-source and has a modular architecture, meaning you can include only the components needed for your application3. It’s also optimized for high performance and scalability3.
+
+
+
 ### **Q: How do you ensure code quality and maintainability in your projects?**
 - Use consistent **coding standards** and **style guides** across the project.
 - Enforce strict linting and **code formatting** using tools like ESLint or Prettier.
