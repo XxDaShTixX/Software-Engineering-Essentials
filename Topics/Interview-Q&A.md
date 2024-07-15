@@ -88,22 +88,12 @@ A library in software is a collection of resources used to develop software, the
 
 
 ### **Q: What is namespace in C#?**
-A **namespace** is a keyword used to declare a scope that contains a set of related classes and types. It helps organize code into logical groups and provides unique class names. This allows the same class name to be used in different namespaces without conflict.
+A namespace is a keyword used to declare a scope that contains a set of related classes and types. It helps organize code into logical groups and provides unique class names. This allows the same class name to be used in different namespaces without conflict.
 
 
 
 ### **Q: What is a Data Type in programming?**
 A data type in programming is an attribute of data which tells the compiler or interpreter how the programmer intends to use the data.
-
-
-
-### **Q: What is inheritance in OOP?**
-Inheritance is a mechanism in which one class acquires the property of another class. It supports the concept of hierarchical classification.
-
-
-
-### **Q: What is polymorphism in OOP?**
-Polymorphism is the ability of an object to take on many forms. The most common use of polymorphism in OOP occurs when a parent class reference is used to refer to a child class object.
 
 
 
@@ -114,6 +104,7 @@ A data structure is a particular way of organizing and storing data in a compute
 
 ### **Q: What is the difference between Stack and Queue?**
 Stack is a LIFO (Last in First out) structure and Queue is a FIFO (First in First out) structure.
+![image](https://github.com/user-attachments/assets/90a96789-4aba-4af7-bb23-7499b378f1c8)
 
 
 
@@ -750,3 +741,4 @@ This code works by maintaining a priority queue of the smallest unprocessed elem
 ## References
 - https://www.turing.com/interview-questions/senior-full-stack
 - https://www.reddit.com/r/learnprogramming/comments/voet39/interview_questions_for_a_full_stack_position/
+- https://atechdaily.com:8443/posts/difference-between-Stack-and-Queue-in-java
