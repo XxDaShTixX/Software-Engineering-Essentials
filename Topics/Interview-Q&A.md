@@ -25,7 +25,51 @@ Object-Oriented Programming (OOP) is a programming paradigm that uses “objects
 - **Abstraction**: Abstraction is about hiding the complexity and only showing the essential features of the object. So in a way, Abstraction means hiding the real implementation and we, as users, knowing only how to use it.
 - **Inheritance**: Inheritance is a mechanism in which one object acquires all the properties and behaviors of a parent object. It's an important part of OOPs as it promotes the concept of reusability and is a way to achieve the desired functionality.
 - **Polymorphism**: Polymorphism allows methods to do different things based on the object that it is acting upon. This is important for separating and organizing code to make it more flexible and maintainable.
+  
+The example below covers all four pillars of Object-Oriented Programming (OOP):
+```
+public class Animal
+{
+    public virtual void MakeSound()
+    {
+        Console.WriteLine("The animal makes a sound");
+    }
+}
 
+public class Cat : Animal
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("The cat says: Meow");
+    }
+}
+
+public class Dog : Animal
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("The dog says: Woof");
+    }
+}
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Animal myAnimal = new Animal();
+        Animal myCat = new Cat();
+        Animal myDog = new Dog();
+
+        myAnimal.MakeSound();  // Outputs: "The animal makes a sound"
+        myCat.MakeSound();     // Outputs: "The cat says: Meow"
+        myDog.MakeSound();     // Outputs: "The dog says: Woof"
+    }
+}
+```
+- **Encapsulation**: The `Animal`, `Cat`, and `Dog` classes are examples of encapsulation. They bundle the data (none in this case) and methods `MakeSound` into a single unit (the class). The internal state of these objects is protected from unauthorized access.
+- **Abstraction**: The `MakeSound` method in the `Animal` class is an example of abstraction. It hides the complexity and only shows the essential features of the object. The real implementation of how each animal makes a sound is hidden in the Cat and Dog classes.
+- **Inheritance**: The `Cat` and `Dog` classes inherit from the `Animal` class. This is an example of inheritance, where `Cat` and `Dog` acquire all the properties and behaviors of Animal.
+- **Polymorphism**: The `MakeSound` method is an example of polymorphism. It does different things based on the object that it is acting upon. For instance, when `MakeSound` is called on a `Cat` object, it outputs “The cat says: Meow”, and when called on a `Dog` object, it outputs “The dog says: Woof”.
 
 
 ### **Q: What is the difference between a class and an object?**
