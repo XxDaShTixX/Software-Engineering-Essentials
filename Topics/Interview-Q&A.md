@@ -234,6 +234,31 @@ A data attribute is a data field that defines the characteristics or features of
 
 
 
+### **Q: What is the SOA (Service-Oriented Architecture)?**
+SOA is an architectural style that focuses on discrete services instead of a monolithic design. It’s a way to make software components reusable and interoperable through service interfaces. Services use common interface standards and an architectural pattern so they can be rapidly incorporated into new applications.
+
+
+
+### **Q: What is an EAI (Enterprise Application Integrtion)?**
+EAI is the use of software and computer systems’ architectural principles to integrate a set of enterprise computer applications. It’s an integration framework composed of a collection of technologies and services which form a middleware to enable integration of systems and applications across an enterprise.
+
+
+
+### **Q: What is an ESB (Enterprse Service Bus)?**
+An ESB implements a communication system between mutually interacting software applications in a service-oriented architecture (SOA). It represents a software architecture for distributed computing, and is a special variant of the more general client-server model.
+
+
+
+### **Q: What is an EDA (Enterprse Service Bus)?**
+EDA is used by data scientists to analyze and investigate data sets and summarize their main characteristics, often employing data visualization methods. It helps determine how best to manipulate data sources to get the answers you need, making it easier for data scientists to discover patterns, spot anomalies, test a hypothesis, or check assumptions.
+
+
+
+### **Q: What is a DDD (Domain-Driven Design)?**
+DDD is a major software design approach, focusing on modeling software to match a domain according to input from that domain’s experts. DDD is against the idea of having a single unified model; instead it divides a large system into bounded contexts, each of which have their own model.
+
+
+
 ### **Q: How do you ensure code quality and maintainability in your projects?**
 - Use consistent **coding standards** and **style guides** across the project.
 - Enforce strict linting and **code formatting** using tools like ESLint or Prettier.
