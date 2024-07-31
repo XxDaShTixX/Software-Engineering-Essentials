@@ -5,6 +5,7 @@
 - [Front-End Questions](#front-end-questions)
 - [Back-End Questions](#back-end-questions)
 - [Coding Problems](#coding-problems)
+- [System Design Questions](#system-design-questions)
 - [References](#references)
 
 ## Introduction
@@ -909,6 +910,21 @@ public class Solution
 ```
 This code works by maintaining a priority queue of the smallest unprocessed element from each array. The priority queue is initialized with the first element from each array. Then, in each iteration, the smallest element is removed from the priority queue and added to the result list, and the next element from the same array is added to the priority queue. This process continues until the priority queue is empty, at which point all elements have been processed and the result list contains the merged and sorted elements from all arrays. The time complexity of this algorithm is O(N log K), where N is the total number of elements and K is the number of arrays, and the space complexity is O(K), because the priority queue stores at most one element from each array.
 
+
+
+
+
+## System Design Questions
+
+### **Q: What are the system design core concepts?**
+- **Scalability**: Learn how to design systems that can handle increased load by scaling horizontally (adding more machines) or vertically (adding more power to existing machines).
+- **Load Balancing**: Understand how to distribute incoming network traffic across multiple servers to ensure no single server becomes a bottleneck.
+- **Caching**: Learn about caching mechanisms to store frequently accessed data in memory, reducing the load on databases and improving response times.
+- **Database Design**: Understand different types of databases (SQL, NoSQL) and how to design schemas that support efficient data retrieval and storage.
+- **Consistency and Availability**: Familiarize yourself with the CAP theorem and how to balance consistency, availability, and partition tolerance in distributed systems.
+- **Microservices Architecture**: Learn about breaking down a monolithic application into smaller, independent services that can be developed, deployed, and scaled independently.
+- **Security**: Understand the principles of securing a system, including authentication, authorization, encryption, and data protection.
+- **Monitoring and Logging**: Learn how to monitor system performance and log important events to detect and troubleshoot issues.
 
 
 
