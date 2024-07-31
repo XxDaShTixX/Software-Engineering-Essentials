@@ -712,6 +712,45 @@ Backtracking can be applied to a variety of problem types:
 
 ## Coding Problems
 
+### **Q: Solve the FizzBuzz problem**
+- For numbers divisible by 3, print `Fizz` instead of the number.
+- For numbers divisible by 5, print `Buzz` instead of the number.
+- For numbers divisible by both 3 and 5, print `FizzBuzz`.
+- For all other numbers, print the number itself.
+```
+public static void Main()
+{
+  int[] list = new int[8] { 
+    9, 12, // Divisible by 3
+    10, 20, // Divisible by 5
+    15, 30, // Divisible by 3 and 5
+    7, 11 // Not divisible by any:
+  };
+  
+  foreach(int num in list)
+  {
+    if(num % 3 == 0 && num % 5 == 0)
+    {
+        Console.WriteLine("FizzBuzz");
+    }
+    else if(num % 3 == 0)
+    {
+        Console.WriteLine("Fizz");
+    }
+    else if(num % 5 == 0)
+    {
+        Console.WriteLine("Buzz");
+    }
+    else
+    {
+        Console.WriteLine(num);
+    }
+  }
+}
+```
+
+
+
 ### **Q: Implement a reversing linked list in C#**
 This code assumes that you have a `Node` class with a `Value` property and a `Next` property.
 ```
