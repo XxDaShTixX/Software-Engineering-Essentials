@@ -720,33 +720,28 @@ Backtracking can be applied to a variety of problem types:
 ```
 public static void Main()
 {
-  int[] list = new int[8] { 
-    9, 12, // Divisible by 3
-    10, 20, // Divisible by 5
-    15, 30, // Divisible by 3 and 5
-    7, 11 // Not divisible by any:
-  };
+  // Initialize the string variable
+  String output = String.Empty;
   
-  foreach(int num in list)
+  for(int num=1; num <= 100; num++)
   {
-    if(num % 3 == 0 && num % 5 == 0)
+    output = num + ": "; // Reset to empty on each iteration
+    
+    // Conditions
+    if(num % 3 == 0)
     {
-        Console.WriteLine("FizzBuzz");
+      output += "Fizz";
     }
-    else if(num % 3 == 0)
+    if(num % 5 == 0)
     {
-        Console.WriteLine("Fizz");
+      output += "Buzz";
     }
-    else if(num % 5 == 0)
-    {
-        Console.WriteLine("Buzz");
-    }
-    else
-    {
-        Console.WriteLine(num);
-    }
-  }
-}
+    
+    // Print
+    Console.WriteLine(output);
+  } // END: For loop
+  
+} // END: Main
 ```
 
 
