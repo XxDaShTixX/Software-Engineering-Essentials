@@ -5,6 +5,7 @@
 - [Front-End Questions](#front-end-questions)
 - [Back-End Questions](#back-end-questions)
 - [Coding Problems](#coding-problems)
+- [Software Testing](#software-testing)
 - [System Design Questions](#system-design-questions)
 - [References](#references)
 
@@ -707,6 +708,49 @@ Backtracking can be applied to a variety of problem types:
 
 ### **Q: What are the main differences between process and thread?**
 ![image](https://github.com/XxDaShTixX/Software-Engineering-Essentials/assets/11358087/d9652012-c238-4be7-9367-99801af9e870)
+
+
+
+
+
+## Software Testing
+
+### **Q: What is unit testing?**
+- Unit testing is primarily focused on testing individual methods or functions in isolation. The goal is to ensure that each method or function works correctly on its own, without any dependencies on other parts of the code.
+
+
+
+### **Q: What is integration testing?**
+- When you start testing multiple methods or functions together, especially if they interact with each other or with external components (like databases, APIs, etc.), this is called integration testing. The purpose of integration testing is to verify that different parts of the system work together as expected.
+
+
+
+### **Q: What is End-to-End (E2E) testing?**
+- End-to-end testing evaluates the entire application’s workflow, encompassing all systems and components. It tests the complete application from start to finish, simulating real user scenarios.
+
+
+
+### **Q: What is Test-Driven Development (TDD)?**
+- Test-Driven Development (TDD) is a software development methodology where tests are written before the actual code. The process involves writing a test for a specific functionality, running the test to see it fail (since the functionality hasn't been implemented yet), then writing the minimum amount of code required to pass the test. Once the test passes, the code is refactored to improve its structure while ensuring that all tests still pass.
+
+
+
+### **Q: Benefits of Test-Driven Development (TDD)**
+- Improved Code Quality: Writing tests first ensures that the code meets the requirements and works as expected.
+- Reduced Bugs: Early detection of issues reduces the number of bugs in the final product.
+- Better Design: The iterative process encourages simpler and more modular code design.
+- Documentation: Tests serve as documentation for the code, making it easier to understand and maintain.
+
+
+
+### **Q: Key Steps in Test-Driven Development (TDD)**
+- Write a Test: Write a test for a new feature or functionality.
+- Run the Test: Run the test to ensure it fails (since the feature isn't implemented yet).
+- Write Code: Write the simplest code possible to make the test pass.
+- Run Tests: Run all tests to ensure the new code doesn't break existing functionality.
+- Refactor: Refactor the code to improve its structure and readability while ensuring all tests still pass.
+- Repeat: Repeat the cycle for new features or changes.
+
 
 
 
