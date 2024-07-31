@@ -1,6 +1,7 @@
 # Table of Content
 - [Introduction](#introduction)
-- [Software Engineering Basics](#software-engineering-basics)
+- [Behavioral Questions](#behavioral-questions)
+- [Software Engineering Concepts](#software-engineering-concepts)
 - [Front-End Questions](#front-end-questions)
 - [Back-End Questions](#back-end-questions)
 - [Coding Problems](#coding-problems)
@@ -13,7 +14,79 @@ I have compiled a list of questions that either I personally have gone through o
 
 
 
-## Software Engineering Basics
+## Behavioral Questions
+
+### **Q: Tell me about yourself?**
+You can answer this question by using the questions below as a guide and adding any relevant information you may think is applicable to you:
+- Where and what degree did you study.
+- Describe a summary of your career journey.
+- Describe your skills, work experience and your achievements.
+- Go over some of your favorite hobbies.
+
+
+
+### **Q: Why did you decide to become a Software Engineer?**
+You can answer this question by using the questions below as a guide and adding any relevant information you may think is applicable to you:
+- When did you decide to become a Software Engineer?
+- Do you enjoy solving problems?
+- Any genuine interest(s) in compputers, software or IT concepts?
+- Do you enjoy creating things and bringing ideas to life?
+
+
+
+### **Q: Tell me about a project you completed successfully?**
+You can answer this question by using the questions below as a guide and adding any relevant information you may think is applicable to you:
+- Give a specific project which you have worked on.
+- Was there an issue, worth noting, that you came across? If so, how did you overcome it to complete the project on time?
+- Use STAR technique to structure your answer:
+  - STAR: **Situation** you faced, **Task** that needed to be done, **Action** you took to complete the task, Result from performing your action.
+
+
+
+### **Q: What are the most important skills and qualities needed to be a great Software Engineer?**
+You can answer this question by using the questions below as a guide and adding any relevant information you may think is applicable:
+- What are some important technical, interpersonal and soft skills needed?
+  - **Technical**: Coding skills, testing, debugging, problem-solving, critical and logical thinking.
+  - **Interpersonal**: Teamwork (and independent work), collaboration, communication, listening, explain complex technical information to non-technical indivduals.
+  - **Soft Skills**: Adaptability, time management, creativity, attention to detail, and emotional intelligence.
+
+
+
+### **Q: Why should we hire you as a Software Engineer?**
+You can answer this question by using the questions below as a guide and adding any relevant information you may think is applicable to you:
+- Mention some organizational values which motivate you.
+- Knowledge sharing with other team members.
+- Your view on self-development and on-going learning.
+- Do you have skills that are not typical for Software Engineers that may be a great addition?
+
+
+
+### **Q: How would you explain something technical to a non-technical person?**
+You can answer this question by using the questions below as a guide and adding any relevant information you may think is applicable to you:
+- Assess their technical knowledge. Don't dumb things too much and don't be too technical. Find the sweet spot.
+- Make use of visuals, drawings and diagrams.
+- Be sincere and welcoming to any follow up questions.
+- Happily repeat or rephrase answer if needed.
+- Allow other party to ask questions.
+
+
+
+  ### **Q: What is your biggest weakness?**
+You can answer this question by using the questions below as a guide and adding any relevant information you may think is applicable to you:
+- Avoid giving weaknesses that are core requirements for the role you are applying for.
+- Example of weaknesses:
+  - Difficult to let go of projects.
+  - Not good at public speaking or giving presentations.
+  - Don't like giving extremely honest feedback because you are non-confrontational.
+  - Don't like to immediately ask people for help, but like to research and figure things out yourself first.
+  - Too self-critical or hard on yourself.
+  - Not good at technical interviews (lol).
+
+
+
+
+
+## Software Engineering Concepts
 
 ### **Q: Can you explain what is Object-Oriented Programming (OOP)?**
 Object-Oriented Programming (OOP) is a programming paradigm that uses “objects” - data structures consisting of data fields and methods together with their interactions - to design applications and computer programs.
@@ -340,6 +413,58 @@ Garbage collection is a form of automatic memory management. It’s a process th
 - **User Acceptance Testing (UAT):** User acceptance testing (UAT) is the last phase of the software testing process. During UAT, actual software users test the software to make sure it can handle required tasks in real-world scenarios, according to specifications. UAT is one of the final and critical software project procedures that must occur before newly developed software is rolled out to the market.
 
 - **Acceptance Testing:** Acceptance testing is a term used in agile software development methodologies, particularly extreme programming, referring to the functional testing of a user story by the software development team during the implementation phase. The customer specifies scenarios to test when a user story has been correctly implemented.
+
+
+
+### **Q: What are the 12 factor principles?**
+1. **Codebase**
+   - **Explanation**: There should be one codebase tracked in version control, with many deploys (e.g., production, staging).
+   - **Example**: A Git repository for a web application that is deployed to both a staging server and a production server.
+
+2. **Dependencies**
+   - **Explanation**: Explicitly declare and isolate dependencies.
+   - **Example**: Using a `requirements.txt` file in Python to list all dependencies, which can be installed using `pip`.
+   - **Example**: Using `dotnet` to add or restore packages / dependencies.
+
+3. **Config**
+   - **Explanation**: Store configuration in the environment.
+   - **Example**: Using environment variables to store database connection strings instead of hardcoding them in the code.
+
+4. **Backing Services**
+   - **Explanation**: Treat backing services (like databases, queues) as attached resources.
+   - **Example**: Connecting to a database using a URL stored in an environment variable, allowing the database to be swapped without changing the code.
+
+5. **Build, Release, Run**
+   - **Explanation**: Strictly separate build and run stages.
+   - **Example**: Using a CI/CD pipeline where the build stage compiles the code, the release stage packages it, and the run stage deploys it.
+
+6. **Processes**
+   - **Explanation**: Execute the app as one or more stateless processes.
+   - **Example**: A web application where each request is handled by a stateless process, allowing any instance to handle any request.
+
+7. **Port Binding**
+   - **Explanation**: Export services via port binding.
+   - **Example**: A web server that listens on a port specified by an environment variable, making it easy to run multiple instances on different ports.
+
+8. **Concurrency**
+   - **Explanation**: Scale out via the process model.
+   - **Example**: Running multiple instances of a web server to handle increased load.
+
+9. **Disposability**
+   - **Explanation**: Maximize robustness with fast startup and graceful shutdown.
+   - **Example**: A web server that can start up quickly and handle termination signals to gracefully shut down.
+
+10. **Dev/Prod Parity**
+   - **Explanation**: Keep development, staging, and production as similar as possible.
+   - **Example**: Using Docker to create identical environments for development, staging, and production.
+
+11. **Logs**
+   - **Explanation**: Treat logs as event streams.
+   - **Example**: Sending log output to `stdout` and `stderr`, which can then be collected and analyzed by a logging service.
+
+12. **Admin Processes**
+   - **Explanation**: Run admin/management tasks as one-off processes.
+   - **Example**: Running database migrations as a separate command that can be executed on demand.
 .  
 .  
 .  
