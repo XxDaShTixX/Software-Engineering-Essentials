@@ -186,16 +186,26 @@ C.right = new Node('G'); // Add right child
 
 
 ## [Graphs](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-8.0)
-A graph data structure consists of a finite (and possibly mutable) set of vertices or nodes or points, together with a set of unordered pairs of these vertices for an undirected graph or a set of ordered pairs for a directed graph.
+A graph data structure consists of a finite (and possibly mutable) set of vertices or nodes or points. A direct graph is one with a one-way flow to one Node, not connecting back to itself. Whereas an undirect graph is a two-way flow going from one Node to another and connecting back to itself.
 
-### Code Example
+### Code Example for Undirected Graph (two-way stree)
 ```
-Dictionary<int, List<string>> graph = new Dictionary<int, List<string>>();
-graph.Add(1, new List<string>() { 2, 3 }); // Add edges to the graph
-graph.Add(2, new List<string>() { 1, 3, 4, 5 });
-graph.Add(3, new List<string>() { 1, 2, 5 });
-graph.Add(4, new List<string>() { 2, 5 });
-graph.Add(5, new List<string>() { 2, 3, 4 });
+Dictionary<int, List<int>> graph = new Dictionary<int, List<int>>();
+graph.Add(1, new List<int>() { 2, 3 }); // Add edges between node 1 and nodes 2 and 3
+graph.Add(2, new List<int>() { 1, 3, 4, 5 }); // Add edges between node 2 and nodes 1, 3, 4, and 5
+graph.Add(3, new List<int>() { 1, 2, 5 }); // Add edges between node 3 and nodes 1, 2, and 5
+graph.Add(4, new List<int>() { 2, 5 }); // Add edges between node 4 and nodes 2 and 5
+graph.Add(5, new List<int>() { 2, 3, 4 }); // Add edges between node 5 and nodes 2, 3, and 4
+```
+
+### Code Example for Directed Graph (one-way street)
+```
+Dictionary<int, List<int>> graph = new Dictionary<int, List<int>>();
+graph.Add(1, new List<int>() { 2, 3 }); // Add directed edges from node 1 to nodes 2 and 3
+graph.Add(2, new List<int>() { 3, 4, 5 }); // Add directed edges from node 2 to nodes 3, 4, and 5
+graph.Add(3, new List<int>() { 5 }); // Add a directed edge from node 3 to node 5
+graph.Add(4, new List<int>() { 5 }); // Add a directed edge from node 4 to node 5
+graph.Add(5, new List<int>() { }); // Node 5 has no outgoing edges
 ```
 
 ### Visual Representation
