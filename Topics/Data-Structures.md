@@ -12,6 +12,8 @@ All code examples listed here are written in C#.
 - [Hash Tables](#hash-tables)
 - [Trees](#trees)
 - [Graphs](#graphs)
+- [Heap](#heap)
+- [Trie](#trie)
 
 ## [Arrays](https://learn.microsoft.com/en-us/dotnet/api/system.array?view=net-8.0)
 An array is a series of elements of the same type placed in contiguous memory locations that can be individually referenced by adding an index to a unique identifier.
@@ -239,3 +241,45 @@ In a max-heap, the root node has the largest value, and each parent node is grea
 ### Visual Representation
 ![image](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20221220165711/MinHeapAndMaxHeap1.png)  
 [Source](https://www.geeksforgeeks.org/heap-data-structure/)
+
+
+
+
+
+## [Trie](https://www.geeksforgeeks.org/introduction-to-trie-data-structure-and-algorithm-tutorials/)
+The trie data structure, also known as a prefix tree, is a tree-like data structure used for efficient retrieval of key-value pairs. It is commonly used for implementing dictionaries and autocomplete features, making it a fundamental component in many search algorithms. In this article, we will explore all about Trie data structures in detail.
+
+### Structure
+Each node in a trie represents a single character of a string. The root node is associated with an empty string, and each subsequent node represents a character in the key. The path from the root to a node represents the prefix of the key.
+
+### Efficiency
+Tries are particularly efficient for operations like prefix searches, autocomplete, and spell checking. They allow for quick retrieval of keys that share common prefixes.
+
+### Insertion and Lookup
+To insert a key into a trie, you start from the root and follow the path corresponding to the characters in the key, creating new nodes as needed. For lookup, you traverse the trie following the path of the key’s characters.
+
+### Applications
+- **Autocomplete**: Suggesting possible completions for a given prefix.
+- **Spell Checking**: Finding words that match a given prefix or correcting misspelled words.
+- **Dictionaries**: Efficiently storing and retrieving words and their definitions
+
+### Example
+```
+public class TrieNode
+{
+    public TrieNode[] children;
+    public int wordCount;
+    public TrieNode()
+    {
+        this.children = new TrieNode[26];
+        // This will keep track of number of strings that
+        // are stored in the Trie from root node to any Trie
+        // node.
+        this.wordCount = 0;
+    }
+}
+```
+
+### Visual Representation
+![image](https://media.geeksforgeeks.org/wp-content/uploads/20240417114225/trie-data.webp)  
+[Source](https://www.geeksforgeeks.org/introduction-to-trie-data-structure-and-algorithm-tutorials/)
