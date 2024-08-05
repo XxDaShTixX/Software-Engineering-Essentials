@@ -49,6 +49,8 @@ Console.WriteLine(arr[0]); // Prints: 1
 
 
 
+
+
 ## [Linked Lists](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.linkedlist-1?view=net-8.0)
 A linked list is a linear data structure where each element is a separate object. Each element (node) of a list consists of two items - the data and a reference to the next node.
 
@@ -64,6 +66,8 @@ linkedList.AddFirst(4); // Add elements at the beginning of the linked list
 ### Visual Representation
 ![image](https://github.com/XxDaShTixX/Software-Engineering-Interview-Essentials/assets/11358087/bb086a19-7cad-4729-bcff-8e0c5b1c821f)
 [Source](https://medium.com/@verdi/working-with-singly-linked-list-928c61ff841e)
+
+
 
 
 
@@ -84,6 +88,8 @@ char popped = stack.Pop(); // Pop the top element: 'D'
 ### Visual Representation
 ![image](https://github.com/XxDaShTixX/Software-Engineering-Interview-Essentials/assets/11358087/9fcf9cc9-9c52-4bd1-83aa-930f300d0c0a)  
 [Source](https://www.geeksforgeeks.org/how-to-create-a-stack-visualizer-using-html-css-javascript/)
+
+
 
 
 
@@ -108,6 +114,8 @@ int dequeued = queue.Dequeue(); // Dequeue the first element: 2
 ### Visual Representation
 ![image](https://github.com/XxDaShTixX/Software-Engineering-Interview-Essentials/assets/11358087/bcd2cac9-40de-4888-991c-f3f667011561)  
 [Source](https://www.geeksforgeeks.org/difference-between-queue-and-deque-queue-vs-deque/)
+
+
 
 
 
@@ -143,6 +151,8 @@ string value = (string)hashtable["key1"]; // Get the value of a key: "value1"
         <td>value3</td>
     </tr>
 </table>
+
+
 
 
 
@@ -185,6 +195,8 @@ C.right = new Node('G'); // Add right child
 
 
 
+
+
 ## [Graphs](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-8.0)
 A graph data structure consists of a finite (and possibly mutable) set of vertices or nodes or points. A direct graph is one with a one-way flow to one Node, not connecting back to itself. Whereas an undirect graph is a two-way flow going from one Node to another and connecting back to itself.
 
@@ -211,3 +223,19 @@ graph.Add(5, new List<int>() { }); // Node 5 has no outgoing edges
 ### Visual Representation
 ![image](https://github.com/XxDaShTixX/Software-Engineering-Interview-Essentials/assets/11358087/7156c2a9-b656-446d-b114-0f0c6ec9c629)  
 [Source](https://learnloner.com/data-structures/graph-data-structure/)
+
+
+
+
+## [Heap](https://www.geeksforgeeks.org/heap-data-structure/)
+A Heap is a complete binary tree data structure that satisfies the heap property: for every node, the value of its children is greater than or equal to its own value. Heaps are usually used to implement priority queues, where the smallest (or largest) element is always at the root of the tree.
+
+### Min-Heap
+In a min-heap, the root node has the smallest value, and each parent node is less than or equal to its children.
+
+### Max-Heap
+In a max-heap, the root node has the largest value, and each parent node is greater than or equal to its children.
+
+### Visual Representation
+![image](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20221220165711/MinHeapAndMaxHeap1.png)  
+[Source](https://www.geeksforgeeks.org/heap-data-structure/)
