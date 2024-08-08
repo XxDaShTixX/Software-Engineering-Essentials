@@ -292,12 +292,12 @@ A Full Stack Developer is a developer who can handle all the work of databases, 
 
 ### **Q: What is a software development life cycle (SDLC) and why is it important?**
 The Software Development Life Cycle (SDLC) is a systematic process that defines the tasks performed during the development of software. It’s a methodology used to ensure that software is developed in a consistent, efficient, and high-quality manner. The Software Development Life Cycle (SDLC) is crucial for several reasons:
-- **Structured Approach**: It provides a systematic framework for planning, designing, developing, testing, and maintaining software12.
-- **Risk Management**: By identifying potential risks early in the process, SDLC helps mitigate them effectively12.
-- **Cost and Time Efficiency**: It aids in estimating costs and time, ensuring that projects stay within budget and on schedule3.
-- **Quality Assurance**: SDLC ensures that the software meets customer requirements and is of high quality through rigorous testing2.
-- **Transparency and Communication**: It enhances visibility for all stakeholders, ensuring everyone is on the same page23.
-- **Improved Client Relations**: A well-defined SDLC improves client satisfaction by delivering reliable and functional software3.
+- **Structured Approach**: It provides a systematic framework for planning, designing, developing, testing, and maintaining software.
+- **Risk Management**: By identifying potential risks early in the process, SDLC helps mitigate them effectively.
+- **Cost and Time Efficiency**: It aids in estimating costs and time, ensuring that projects stay within budget and on schedule.
+- **Quality Assurance**: SDLC ensures that the software meets customer requirements and is of high quality through rigorous testing.
+- **Transparency and Communication**: It enhances visibility for all stakeholders, ensuring everyone is on the same page.
+- **Improved Client Relations**: A well-defined SDLC improves client satisfaction by delivering reliable and functional software.
 
 
 
