@@ -186,11 +186,11 @@ Stack is a LIFO (Last in First out) structure and Queue is a FIFO (First in Firs
 ### **Q: What is the difference between abstract and interface?**
 Here's a summarized comparison of abstract classes and interfaces in C#:
 
-- **Methods**: Abstract classes in C# can have both abstract and non-abstract methods (virtual or concrete), while interfaces can only have method signatures.
+- **Methods**: Abstract classes in C# can have both abstract and non-abstract methods (virtual or concrete), while interfaces can only have method signatures (abstract methods). However, starting from C# 8.0, interfaces can also have default implementations for methods.
 - **Variables**: Variables in an abstract class can be non-static and non-readonly, but those in an interface are always static and readonly in nature.
-- **Implementation**: An abstract class can provide an implementation of an interface, but an interface can't implement an abstract class.
-- **Members**: A C# abstract class can have public, private, and protected members, whereas an interface only has public members.
-- **Inheritance**: An abstract class is extended using the ":" keyword, while an interface is implemented using the ":" keyword.
+- **Implementation**: An abstract class can provide an implementation of an interface, but an interface can’t implement an abstract class.
+- **Members**: A C# abstract class can have public, private, and protected members, whereas an interface only has public members. However, starting from C# 8.0, interfaces can also have private members.
+- **Inheritance**: An abstract class is extended using the “:” keyword, while an interface is implemented using the “:” keyword.
 
 In essence, while both abstract classes and interfaces are used to create reusable and modular code in C#, they have different rules and use-cases.
 
