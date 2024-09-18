@@ -311,6 +311,8 @@ CI/CD is a process that happens prior to deployment. It involves merging code ch
 #### Example
 Creating a CI/CD in Azure DevOps
 ![image](https://github.com/user-attachments/assets/4330ca51-0dd6-479c-b816-159954c1f5f4)
+![Continuous Integration (CI) - Build Pipeline](https://github.com/user-attachments/assets/cbe34491-a61b-4949-83cd-47b07c23fa6a)
+![Continuous Deployment (CD) - Release Pipeline](https://github.com/user-attachments/assets/eba1b1bf-710e-4f06-a8c9-57351c2b2cbf)
 Ref: https://www.youtube.com/watch?v=xH5EY7FCFQw
 
 
