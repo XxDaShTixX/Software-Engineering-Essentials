@@ -307,7 +307,10 @@ DevOps is a set of practices that combines software development (Dev) and IT ope
 
 
 ### **Q: What is Continuous Integration/Continuous Deployment (CI/CD)?**
-CI/CD is a process that happens prior to deployment. It involves merging code changes frequently (Continuous Integration), running automated tests to ensure the application is not broken by the changes (also part of Continuous Integration), and then automatically deploying these changes to a staging or production environment (Continuous Deployment/Delivery).
+CI/CD is a process that happens prior to deployment. It involves merging code changes frequently (Continuous Integration), running automated tests to ensure the application is not broken by the changes (also part of Continuous Integration), and then automatically deploying these changes to a staging or production environment (Continuous Deployment/Delivery).  
+#### Example
+Creating a CI/CD in Azure DevOps
+![image](https://github.com/user-attachments/assets/4330ca51-0dd6-479c-b816-159954c1f5f4)
 
 
 
