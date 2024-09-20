@@ -143,9 +143,10 @@ public class Program
 }
 ```
 - **Encapsulation**: The `Animal`, `Cat`, and `Dog` classes are examples of encapsulation. They bundle the data (none in this case) and methods `MakeSound` into a single unit (the class). The internal state of these objects is protected from unauthorized access.
-- **Abstraction**: The `MakeSound` method in the `Animal` class is an example of abstraction. It hides the complexity and only shows the essential features of the object. The real implementation of how each animal makes a sound is hidden in the Cat and Dog classes.
-- **Inheritance**: The `Cat` and `Dog` classes inherit from the `Animal` class. This is an example of inheritance, where `Cat` and `Dog` acquire all the properties and behaviors of Animal.
 - **Polymorphism**: The `MakeSound` method is an example of polymorphism. It does different things based on the object that it is acting upon. For instance, when `MakeSound` is called on a `Cat` object, it outputs “The cat says: Meow”, and when called on a `Dog` object, it outputs “The dog says: Woof”.
+- **Inheritance**: The `Cat` and `Dog` classes inherit from the `Animal` class. This is an example of inheritance, where `Cat` and `Dog` acquire all the properties and behaviors of Animal.
+- **Abstraction**: The `MakeSound` method in the `Animal` class is an example of abstraction. It hides the complexity and only shows the essential features of the object. The real implementation of how each animal makes a sound is hidden in the Cat and Dog classes.
+
 
 
 ### **Q: What is the difference between a class and an object?**
