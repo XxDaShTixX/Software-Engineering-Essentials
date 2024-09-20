@@ -321,6 +321,24 @@ Test-Driven Development (TDD) is a software development process where you write 
 
 
 
+### **Q: What is Trunk-Based Development?**
+Trunk-Based development is a version control management practice where developers merge small, frequent updates into a single branch called the `trunk` or `main` branch. Some key characteristics are:
+- Frequent commits.
+- Short-lived branches.
+- Continuous integration.
+- Simplified workflow.
+
+### **Q: What is Gitflow workflow?**
+Gitflow is a branching model for Git. It is designed to manage the complexities of the development lifecycle, especially for projects with scheduled release cycles. Some key concepts:
+- Main branches:
+  - `main` branch: Stores the official release history.
+  - `develop` branch: Serves as an integration branch for features and contains the complete history of the project.
+- Supporting branches:
+  - Used to prepare a new production release. They branch off from `develop` and merge into both `develop` and `main`.
+- Hotfix branches:
+  - Used to quickly fix production issues. They branch off from `main` and merge back into both `develop` and `main`.
+
+
 ### **Q: What is a software framework?**
 A software framework is a universal, reusable software environment that provides particular functionality as part of a larger software platform to facilitate development of software applications.
 
