@@ -97,9 +97,10 @@ Object-Oriented Programming (OOP) is a programming paradigm that uses “objects
 
 ### **Q: What are the pillars of Object Oriented Programming (OOP)?**
 - **Encapsulation**: This principle is about bundling the data, and the methods that operate on this data, into a single unit called a class. This mechanism helps to hide the internal state of an object and protect it from unauthorized access.
-- **Abstraction**: Abstraction is about hiding the complexity and only showing the essential features of the object. So in a way, Abstraction means hiding the real implementation and we, as users, knowing only how to use it.
-- **Inheritance**: Inheritance is a mechanism in which one object acquires all the properties and behaviors of a parent object. It's an important part of OOPs as it promotes the concept of reusability and is a way to achieve the desired functionality.
 - **Polymorphism**: Polymorphism allows methods to do different things based on the object that it is acting upon. This is important for separating and organizing code to make it more flexible and maintainable.
+- **Inheritance**: Inheritance is a mechanism in which one object acquires all the properties and behaviors of a parent object. It's an important part of OOPs as it promotes the concept of reusability and is a way to achieve the desired functionality.
+- **Abstraction**: Abstraction is about hiding the complexity and only showing the essential features of the object. So in a way, Abstraction means hiding the real implementation and we, as users, knowing only how to use it.
+
   
 The example below covers all four pillars of Object-Oriented Programming (OOP):
 ```
